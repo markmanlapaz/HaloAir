@@ -1,0 +1,173 @@
+{
+  "business": {
+    "name": "Halo Air Heating & Cooling Ltd.",
+    "shortName": "Halo Air Heating & Cooling",
+    "tagline": "Next-level Comfort",
+    "phone": "780-224-0024",
+    "phoneE164": "+17802240024",
+    "email": "haloairhvac@gmail.com",
+    "_addressNote": "Owner runs out of a home office and asked that the street address NEVER appear on the public site, in JSON-LD, or in any rendered UI. Only city/region/country are kept here and consumed by the service-area-only schema in src/lib/schema.ts. Do not re-introduce street/postalCode fields.",
+    "address": {
+      "city": "Edmonton",
+      "region": "AB",
+      "country": "CA"
+    },
+    "geo": {
+      "latitude": 53.5461,
+      "longitude": -113.4938,
+      "_note": "Edmonton city centroid — used only for the schema's areaServed centre. We intentionally do NOT publish the home-office street coordinates."
+    },
+    "rating": null,
+    "_ratingNote": "Set to { value: number, count: number } once client Google account access is granted and reviews are verified. Until then this stays null and the AggregateRating JSON-LD block is suppressed (embedding unverified rating data violates Google's structured-data policy).",
+    "yearsExperience": 15,
+    "_yearsExperienceNote": "Owner's HVAC industry experience (not company age). Halo Air Heating & Cooling Ltd. was incorporated March 2026; presenting '15 years experience' is accurate while 'in business since 2020' would not be. Do not display 'founded year' anywhere — use yearsExperience for copy only.",
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "google": "https://share.google/NTHk8e3Jo3qpFvMd3"
+    },
+    "googleReviewUrl": "https://search.google.com/local/writereview?placeid=PLACEHOLDER_PLACE_ID"
+  },
+  "hours": {
+    "mon-fri": "08:00-17:00",
+    "sat": "closed",
+    "sun": "closed",
+    "afterHours": "By request — call or email"
+  },
+  "_hoursNote": "Client confirmed 8am–5pm weekdays, weekends preferably off. After-hours service is available on request (email or phone), NOT a 24/7 staffed emergency line. Do not advertise '24/7' or 'always open' anywhere on the site or in schema.",
+  "_serviceCategoriesNote": "Nested category-based service hierarchy. Each top-level entry in serviceCategories becomes a /services/[category] landing page; each entry under `.services` becomes /services/[category]/[slug]. Sub-service slugs MUST be unique across categories (used as the URL leaf). Booking form renders these as <optgroup>s. standaloneServices map to top-level /services/[slug] pages — currently only after-hours.",
+  "serviceCategories": {
+    "heating": {
+      "label": "Heating",
+      "slug": "heating",
+      "icon": "flame",
+      "accent": "orange",
+      "description": "Furnace repair, installation, and maintenance — plus gas work on every job.",
+      "order": 10,
+      "services": {
+        "furnace-repair": {
+          "label": "Furnace Repair",
+          "slug": "furnace-repair",
+          "duration": 90,
+          "buffer": 30,
+          "short": "Same-week diagnosis and repair for residential furnaces — all major brands."
+        },
+        "furnace-installation": {
+          "label": "Furnace Installation",
+          "slug": "furnace-installation",
+          "duration": 360,
+          "buffer": 60,
+          "short": "High-efficiency furnace replacement, right-sized to your home. Free estimate."
+        },
+        "furnace-maintenance": {
+          "label": "Furnace Maintenance",
+          "slug": "furnace-maintenance",
+          "duration": 90,
+          "buffer": 15,
+          "short": "Annual fall tune-ups that preserve your warranty and prevent winter breakdowns."
+        }
+      }
+    },
+    "cooling": {
+      "label": "Cooling",
+      "slug": "cooling",
+      "icon": "snowflake",
+      "accent": "blue",
+      "description": "AC repair, installation, and seasonal maintenance for Edmonton summers.",
+      "order": 20,
+      "services": {
+        "ac-repair": {
+          "label": "AC Repair",
+          "slug": "ac-repair",
+          "duration": 90,
+          "buffer": 30,
+          "short": "Fast diagnosis and repair for residential and light-commercial cooling."
+        },
+        "ac-installation": {
+          "label": "AC Installation",
+          "slug": "ac-installation",
+          "duration": 300,
+          "buffer": 60,
+          "short": "New central AC installs sized to your home. Free written estimate."
+        },
+        "ac-maintenance": {
+          "label": "AC Maintenance",
+          "slug": "ac-maintenance",
+          "duration": 60,
+          "buffer": 15,
+          "short": "Spring tune-ups that catch problems before the first heat wave."
+        }
+      }
+    },
+    "water": {
+      "label": "Water Heaters",
+      "slug": "water",
+      "icon": "tools",
+      "accent": "blue",
+      "description": "Tank and tankless water heater repair, installation, and maintenance — Red Seal Plumber + Gasfitter on every job.",
+      "order": 30,
+      "services": {
+        "water-heater-repair": {
+          "label": "Water Heater Repair",
+          "slug": "water-heater-repair",
+          "duration": 90,
+          "buffer": 30,
+          "short": "Tank and tankless repairs — leaks, no hot water, lukewarm output, error codes."
+        },
+        "water-heater-installation": {
+          "label": "Water Heater Installation",
+          "slug": "water-heater-installation",
+          "duration": 180,
+          "buffer": 60,
+          "short": "New tank installs sized to your household. Free estimate, gas + venting included."
+        },
+        "tankless-water-heaters": {
+          "label": "Tankless Water Heaters",
+          "slug": "tankless-water-heaters",
+          "duration": 300,
+          "buffer": 60,
+          "short": "On-demand hot water — endless supply, longer lifespan, no standby losses."
+        }
+      }
+    }
+  },
+  "standaloneServices": {
+    "after-hours": {
+      "label": "After-Hours Service",
+      "slug": "after-hours",
+      "icon": "alert",
+      "accent": "orange",
+      "duration": 120,
+      "buffer": 30,
+      "short": "After-hours service for no-heat and no-cool situations — available by request via phone or email.",
+      "order": 90
+    }
+  },
+  "serviceAreas": [
+    "Edmonton",
+    "Sherwood Park",
+    "St. Albert",
+    "Spruce Grove",
+    "Stony Plain",
+    "Leduc",
+    "Beaumont",
+    "Fort Saskatchewan"
+  ],
+  "trustSignals": {
+    "licensed": true,
+    "insured": true,
+    "awardWinning": true,
+    "_awardNote": "Owner is a multi-award-winning HVAC technician (President's Award 2020 and Right-Time Award 2023, earned at prior employers). Per client decision, the site uses generic 'award-winning' language and does NOT name the previous employers.",
+    "certifications": [
+      "Red Seal Journeyman Plumber",
+      "Journeyman Gasfitter",
+      "Refrigeration Mechanic",
+      "Air Conditioning Mechanic"
+    ],
+    "guarantees": [
+      "Free estimates on new equipment",
+      "Upfront pricing — call for a quote, no surprises",
+      "Award-winning technician with 15 years of HVAC experience"
+    ]
+  }
+}

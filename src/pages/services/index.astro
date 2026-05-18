@@ -1,0 +1,137 @@
+---
+// =============================================================================
+// /services — services hub page
+//
+// Three category cards (Heating / Cooling / Water) up top — each links to its
+// own landing page. Standalone After-Hours service sits below as a separate
+// card. This is the cluster-root: every other service page is one hop away.
+// =============================================================================
+import { getCollection } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Breadcrumb from '~/components/Breadcrumb.astro';
+import ServiceCard from '~/components/ServiceCard.astro';
+import CTABanner from '~/components/CTABanner.astro';
+import TrustBadges from '~/components/TrustBadges.astro';
+import config from '~/data/business-config.json';
+
+const cats = await getCollection('serviceCategories');
+const categories = cats
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((c) => ({ ...c.data, slug: c.id }));
+
+const allServices = await getCollection('services');
+const standaloneServices = allServices
+  .filter((s) => !s.id.includes('/'))
+  .map((s) => ({ ...s.data, slug: s.id }));
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+];
+---
+<BaseLayout
+  title="HVAC, Heating, Cooling & Water Heater Services in Edmonton | Halo Air"
+  description="Halo Air covers Heating, Cooling, and Water Heaters across the Edmonton metro — repair, installation, and seasonal maintenance. Red Seal Plumber + Gasfitter + Refrigeration + AC under one roof. Serving Edmonton & area."
+  canonicalPath="/services"
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} class="border-b border-brand-line bg-white" />
+
+  <section class="section pt-12">
+    <div class="container-wide">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="eyebrow">Services</span>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+          One call. Four trades. Zero juggling.
+        </h1>
+        <p class="mt-5 text-lg text-brand-slate">
+          Halo Air carries Journeyman tickets in all four of the trades that
+          keep your home running — Plumbing, Gasfitter, Refrigeration, and
+          Air Conditioning. Pick the service category you need; each page lists
+          the specific work we cover.
+        </p>
+      </div>
+
+      <!-- Category cards -->
+      <div class="mt-12 grid gap-5 lg:grid-cols-3">
+        {categories.map((c) => (
+          <ServiceCard
+            title={c.label}
+            href={`/services/${c.slug}`}
+            description={c.short}
+            icon={c.icon}
+            accent={c.accent}
+          />
+        ))}
+      </div>
+
+      <!-- Standalone services (e.g. After-Hours) below the categories -->
+      {standaloneServices.length > 0 && (
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {standaloneServices.map((s) => (
+            <ServiceCard
+              title={s.title}
+              href={`/services/${s.slug}`}
+              description={s.short}
+              icon={s.icon}
+              accent={s.accent}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <TrustBadges />
+
+  <section class="section bg-white border-y border-brand-line">
+    <div class="container-wide grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <span class="eyebrow">Why one contractor matters</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          Most HVAC jobs touch more than just HVAC.
+        </h2>
+        <p class="mt-4 text-brand-slate">
+          A furnace install often needs a gas line moved. A new AC condenser
+          sometimes needs an electrical panel check. A water heater swap is
+          plumbing + gas + venting in one job. With Halo Air, all of those are
+          the same crew, the same warranty, and the same phone number for
+          follow-up.
+        </p>
+        <ul class="mt-6 space-y-3 text-brand-slate">
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">No sub-contractor finger-pointing.</strong> If something needs follow-up, you call us — not three different companies.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">One quote covers everything.</strong> No surprise add-ons when a gas-line move turns up mid-install.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">Warranty handled in one place.</strong> Equipment warranty + labour warranty + service log all under one customer file.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card !bg-gradient-to-br !from-brand-blue-700 !via-brand-blue-600 !to-brand-orange-500 !text-white !border-0">
+        <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-white/75">The four trades we carry</h3>
+        <ul class="mt-4 space-y-3 text-xl font-bold">
+          {config.trustSignals.certifications.map((c) => (
+            <li class="flex items-center gap-3">
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-white/20 text-white">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              {c}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Not sure which service fits your problem?"
+    subheading={`Call ${config.business.phone} or book online — we'll diagnose and route you to the right fix.`}
+  />
+</BaseLayout>

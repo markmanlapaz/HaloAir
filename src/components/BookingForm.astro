@@ -1,0 +1,351 @@
+---
+// =============================================================================
+// BookingForm.astro
+//
+// PHASE 1: posts to Web3Forms — they email the client with the booking payload.
+// PHASE 2: change `BOOKING_ENDPOINT` to your Node API URL. Field names are
+//          already shaped for the AI dispatcher (urgency, time-window, service
+//          type, address) so no field renaming is required.
+//
+// This file is intentionally self-contained. Phase 2 should ONLY touch:
+//   1. The BOOKING_ENDPOINT constant below
+//   2. (Optionally) remove the hidden Web3Forms `access_key` input
+//
+// No localStorage / sessionStorage anywhere — booking ID lives in component
+// state via a hidden input, generated client-side at form mount.
+// =============================================================================
+import config from '~/data/business-config.json';
+
+// Render the service-type select as <optgroup>s per category so customers
+// pick the right sub-service. Standalone (after-hours) lives in its own group
+// at the bottom. The submitted value is the sub-service slug (e.g.
+// "ac-repair") — the AI dispatcher in Phase 2 maps that to a duration/buffer
+// pair from business-config.json.
+const categoryGroups = Object.entries(config.serviceCategories).map(([key, cat]) => ({
+  key,
+  label: cat.label,
+  options: Object.entries(cat.services).map(([slug, s]) => ({ value: slug, label: s.label })),
+}));
+const standaloneGroup = {
+  label: 'Other',
+  options: Object.entries(config.standaloneServices).map(([slug, s]) => ({ value: slug, label: s.label })),
+};
+---
+<section class="card mx-auto max-w-3xl" aria-labelledby="booking-form-heading">
+  <header class="mb-8">
+    <span class="eyebrow">Book Service</span>
+    <h2 id="booking-form-heading" class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Request a visit
+    </h2>
+    <p class="mt-2 text-brand-slate">
+      Fill out the form and we'll confirm your appointment within one business
+      day. Need help outside hours? Call or text
+      <a href={`tel:${config.business.phoneE164}`} class="font-semibold text-brand-orange-600 hover:underline">
+        {config.business.phone}
+      </a> — after-hours service is available on request.
+    </p>
+  </header>
+
+  <form
+    id="booking-form"
+    method="POST"
+    novalidate
+    class="space-y-5"
+    data-form-name="HaloAir Booking Request"
+  >
+    <!-- Web3Forms required fields (Phase 1 only — remove for Phase 2 API) -->
+    <input type="hidden" name="access_key" value="" id="web3forms-key" />
+    <input type="hidden" name="subject" value="New booking request — Halo Air" />
+    <input type="hidden" name="from_name" value="Halo Air Website" />
+    <!-- Honeypot anti-spam: bots fill this; humans don't see it. -->
+    <input
+      type="checkbox"
+      name="botcheck"
+      tabindex="-1"
+      autocomplete="off"
+      style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"
+      aria-hidden="true"
+    />
+
+    <!-- Client-generated booking ID. Hidden but submitted with the payload so
+         the AI dispatcher (Phase 2) can correlate logs across systems. -->
+    <input type="hidden" name="booking_id" id="booking-id" value="" />
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="full_name" class="mb-1.5 block text-sm font-semibold">Full name *</label>
+        <input
+          id="full_name"
+          name="full_name"
+          type="text"
+          autocomplete="name"
+          required
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+        />
+      </div>
+      <div>
+        <label for="phone" class="mb-1.5 block text-sm font-semibold">Phone *</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          required
+          pattern="[\d\s\-\(\)\+]{10,}"
+          placeholder="(780) 555-1234"
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label for="email" class="mb-1.5 block text-sm font-semibold">Email *</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+        class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+      />
+    </div>
+
+    <div>
+      <label for="address" class="mb-1.5 block text-sm font-semibold">Service address *</label>
+      <input
+        id="address"
+        name="address"
+        type="text"
+        autocomplete="street-address"
+        required
+        placeholder="Street, City, Postal Code"
+        class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+      />
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="service_type" class="mb-1.5 block text-sm font-semibold">Service type *</label>
+        <select
+          id="service_type"
+          name="service_type"
+          required
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+        >
+          <option value="">— Choose a service —</option>
+          {categoryGroups.map((g) => (
+            <optgroup label={g.label}>
+              {g.options.map((o) => (
+                <option value={o.value}>{o.label}</option>
+              ))}
+            </optgroup>
+          ))}
+          <optgroup label={standaloneGroup.label}>
+            {standaloneGroup.options.map((o) => (
+              <option value={o.value}>{o.label}</option>
+            ))}
+            <option value="other">Something else</option>
+          </optgroup>
+        </select>
+      </div>
+      <div>
+        <label for="urgency" class="mb-1.5 block text-sm font-semibold">Urgency *</label>
+        <select
+          id="urgency"
+          name="urgency"
+          required
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+        >
+          <option value="">— How urgent? —</option>
+          <option value="emergency">Emergency (no heat / no cool)</option>
+          <option value="within-48h">Within 48 hours</option>
+          <option value="flexible">Flexible — anytime this week</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="preferred_date" class="mb-1.5 block text-sm font-semibold">
+          Preferred date <span class="text-brand-slate font-normal">(optional)</span>
+        </label>
+        <input
+          id="preferred_date"
+          name="preferred_date"
+          type="date"
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+        />
+      </div>
+      <div>
+        <label for="preferred_window" class="mb-1.5 block text-sm font-semibold">Preferred time</label>
+        <select
+          id="preferred_window"
+          name="preferred_window"
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+        >
+          <option value="flexible">Flexible</option>
+          <option value="morning">Morning (8a–12p)</option>
+          <option value="afternoon">Afternoon (12p–5p)</option>
+          <option value="after-hours">After hours (by request)</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="problem_description" class="mb-1.5 block text-sm font-semibold">
+        Tell us what's happening *
+      </label>
+      <textarea
+        id="problem_description"
+        name="problem_description"
+        rows="4"
+        required
+        placeholder="e.g. Furnace blowing cold air, started yesterday afternoon. 2-storey home, 18 yrs old."
+        class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+      ></textarea>
+    </div>
+
+    <!-- Live region: screen-reader-announced form status. -->
+    <p id="form-status" class="text-sm" role="status" aria-live="polite"></p>
+
+    <button
+      type="submit"
+      id="booking-submit"
+      class="btn-primary w-full sm:w-auto"
+    >
+      <span data-label="default">Request Booking</span>
+      <span data-label="loading" class="hidden">Sending…</span>
+    </button>
+
+    <p class="text-xs text-brand-slate">
+      By submitting, you agree to be contacted about your service request. We
+      never share your information. See our <a href="/privacy" class="underline">Privacy Policy</a>.
+    </p>
+  </form>
+</section>
+
+<script>
+  // ---------------------------------------------------------------------------
+  // The single Phase 2 swap point. Change this URL when the AI dispatcher
+  // endpoint is live. Field names already match what the dispatcher expects.
+  // ---------------------------------------------------------------------------
+  const BOOKING_ENDPOINT = 'https://api.web3forms.com/submit';
+
+  // PUBLIC_ env vars are exposed at build time. Set PUBLIC_WEB3FORMS_KEY in .env.
+  // We inject the key into the hidden access_key input on mount so it never
+  // appears in the rendered HTML source by default.
+  const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  const submitBtn = document.getElementById('booking-submit') as HTMLButtonElement | null;
+  const keyInput = document.getElementById('web3forms-key') as HTMLInputElement | null;
+  const idInput = document.getElementById('booking-id') as HTMLInputElement | null;
+
+  if (form && status && submitBtn && idInput && keyInput) {
+    // Set Web3Forms key (Phase 1 only — Phase 2 removes the hidden input)
+    keyInput.value = WEB3FORMS_KEY;
+
+    // Generate a booking ID at mount: BK-{timestamp36}-{random6}
+    // This goes to email in Phase 1; in Phase 2 it correlates calendar events.
+    const id = `BK-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+    idInput.value = id;
+
+    // Prefill from hero quick-form handoff (?name=&phone=&service=).
+    // The hero form on the homepage just collects these three fields and
+    // navigates here — we carry them over so the visitor doesn't retype.
+    const params = new URLSearchParams(window.location.search);
+    const nameInput = document.getElementById('full_name') as HTMLInputElement | null;
+    const phoneInput = document.getElementById('phone') as HTMLInputElement | null;
+    const serviceSelect = document.getElementById('service_type') as HTMLSelectElement | null;
+    let prefilled = false;
+    const nameParam = params.get('name');
+    if (nameInput && nameParam && !nameInput.value) {
+      nameInput.value = nameParam;
+      prefilled = true;
+    }
+    const phoneParam = params.get('phone');
+    if (phoneInput && phoneParam && !phoneInput.value) {
+      phoneInput.value = phoneParam;
+      prefilled = true;
+    }
+    const serviceParam = params.get('service');
+    if (serviceSelect && serviceParam) {
+      const match = Array.from(serviceSelect.options).some((o) => o.value === serviceParam);
+      if (match) {
+        serviceSelect.value = serviceParam;
+        prefilled = true;
+      }
+    }
+    if (prefilled) {
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    const setStatus = (msg: string, tone: 'idle' | 'ok' | 'err') => {
+      status.textContent = msg;
+      status.className = 'text-sm ' + ({
+        idle: 'text-brand-slate',
+        ok: 'text-green-700',
+        err: 'text-red-700',
+      }[tone]);
+    };
+
+    const setLoading = (loading: boolean) => {
+      submitBtn.disabled = loading;
+      submitBtn.querySelector('[data-label="default"]')?.classList.toggle('hidden', loading);
+      submitBtn.querySelector('[data-label="loading"]')?.classList.toggle('hidden', !loading);
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Use the browser's native constraint validation, then layer our own UX.
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        setStatus('Please fill in the required fields.', 'err');
+        return;
+      }
+
+      if (!WEB3FORMS_KEY) {
+        setStatus(
+          'Form is not yet configured. Please call ' +
+            '780-224-0024 or email haloairhvac@gmail.com directly.',
+          'err',
+        );
+        return;
+      }
+
+      setLoading(true);
+      setStatus('Sending your request…', 'idle');
+
+      try {
+        const fd = new FormData(form);
+        const res = await fetch(BOOKING_ENDPOINT, {
+          method: 'POST',
+          body: fd,
+          headers: { Accept: 'application/json' },
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && (data as { success?: boolean }).success !== false) {
+          form.reset();
+          // Restore the freshly-reset booking ID so the user sees it confirmed.
+          idInput.value = id;
+          setStatus(
+            `Got it — we'll be in touch shortly. Reference: ${id}`,
+            'ok',
+          );
+        } else {
+          throw new Error((data as { message?: string }).message ?? 'Submission failed');
+        }
+      } catch (err) {
+        console.error('[BookingForm] submit failed', err);
+        setStatus(
+          'Something went wrong. Please call 780-224-0024 — we want to help.',
+          'err',
+        );
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
+</script>

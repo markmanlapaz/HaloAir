@@ -1,0 +1,287 @@
+---
+// =============================================================================
+// /services/[category]/[slug] — dynamic sub-service detail page
+//
+// Renders each entry in the `services` content collection that lives in a
+// category subfolder (e.g. cooling/ac-repair, heating/furnace-installation).
+// Standalone services like `after-hours.md` (no slash in id) are handled by
+// their own /services/after-hours.astro page and are skipped here.
+//
+// Emits Service + FAQPage + BreadcrumbList JSON-LD via BaseLayout. The
+// Service node now carries `category` linking back to the parent category
+// landing page, so Google's knowledge graph stitches the cluster correctly.
+// =============================================================================
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Breadcrumb from '~/components/Breadcrumb.astro';
+import ServiceCard from '~/components/ServiceCard.astro';
+import CTABanner from '~/components/CTABanner.astro';
+import TrustBadges from '~/components/TrustBadges.astro';
+import config from '~/data/business-config.json';
+import { serviceSchema, faqPageSchema } from '~/lib/schema';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('services');
+  // Only collection entries whose id has a slash live under [category]/[slug].
+  // Flat ids (e.g. "after-hours") render via their own dedicated page.
+  return entries
+    .filter((entry) => entry.id.includes('/'))
+    .map((entry) => {
+      const [category, slug] = entry.id.split('/');
+      return {
+        params: { category, slug },
+        props: { entry, category, slug },
+      };
+    });
+}
+
+const { entry, category, slug } = Astro.props;
+const service = { ...entry.data, slug, category };
+const { Content } = await render(entry);
+
+// Category label from config (for breadcrumbs + Service.category schema).
+const categoryConfig = (config.serviceCategories as Record<string, { label: string; slug: string }>)[category];
+const categoryLabel = categoryConfig?.label ?? category;
+
+// Sibling services in the same category — shown in "Other [Category] services".
+const allServices = await getCollection('services');
+const siblings = allServices
+  .filter((s) => s.id.includes('/') && s.id.startsWith(`${category}/`) && s.id !== entry.id)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((s) => {
+    const [, sSlug] = s.id.split('/');
+    return { ...s.data, slug: sSlug, category };
+  });
+
+// Schema graph for this page
+const extraSchema: Record<string, unknown>[] = [
+  serviceSchema(Astro.site, {
+    name: service.title,
+    description: service.metaDesc,
+    slug: `${category}/${slug}`,
+    serviceType: service.title,
+    category: categoryLabel,
+    categoryUrl: `/services/${category}/`,
+  }),
+];
+if (service.faq.length > 0) {
+  extraSchema.push(faqPageSchema(service.faq));
+}
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: categoryLabel, href: `/services/${category}` },
+  { name: service.title, href: `/services/${category}/${slug}` },
+];
+---
+<BaseLayout
+  title={service.metaTitle}
+  description={service.metaDesc}
+  canonicalPath={`/services/${category}/${slug}`}
+  breadcrumbs={breadcrumbs}
+  extraSchema={extraSchema}
+>
+  <Breadcrumb items={breadcrumbs} class="border-b border-brand-line bg-white" />
+
+  <!-- HERO -->
+  <section class="section pt-12">
+    <div class="container-wide">
+      <div class="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <span class={`eyebrow ${service.accent === 'orange' ? '!bg-brand-orange-50 !text-brand-orange-700' : ''}`}>
+            <a href={`/services/${category}`} class="hover:underline">{categoryLabel}</a>
+            <span class="mx-1.5 text-brand-slate">›</span>
+            {service.title}
+          </span>
+          <h1 class="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
+            {service.h1}
+          </h1>
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-brand-slate">
+            {service.metaDesc}
+          </p>
+
+          {service.features.length > 0 && (
+            <ul class="mt-6 grid gap-2 sm:grid-cols-2">
+              {service.features.map((f) => (
+                <li class="flex items-start gap-2 text-sm">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class={`mt-0.5 shrink-0 ${service.accent === 'orange' ? 'text-brand-orange-600' : 'text-brand-blue-600'}`} aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  <span class="text-brand-ink">{f}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/book" class="btn-primary">Book this service</a>
+            <a href={`tel:${config.business.phoneE164}`} class="btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              Call {config.business.phone}
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero accent panel — gradient card with service icon -->
+        <div class={`relative aspect-[4/5] rounded-[2rem] p-8 text-white shadow-soft ${service.accent === 'orange' ? 'bg-gradient-to-br from-brand-orange-600 via-brand-orange-500 to-brand-ink' : 'bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-ink'}`}>
+          <span aria-hidden="true" class="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-white/15 blur-3xl"></span>
+          <span aria-hidden="true" class="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-black/30 blur-3xl"></span>
+          <div class="relative flex h-full flex-col justify-between">
+            <span class="grid h-16 w-16 place-items-center rounded-2xl bg-white/15 backdrop-blur-sm">
+              {service.icon === 'snowflake' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+              )}
+              {service.icon === 'flame' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+              )}
+              {service.icon === 'thermo' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+              )}
+              {service.icon === 'tools' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              )}
+              {service.icon === 'alert' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              )}
+            </span>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/75">Halo Air · {categoryLabel}</p>
+              <p class="mt-2 text-3xl font-extrabold leading-tight">{service.title}</p>
+              <p class="mt-3 text-white/85">{service.short}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKDOWN BODY -->
+  <section class="section bg-white border-y border-brand-line">
+    <div class="container-wide max-w-4xl">
+      <article class="prose-body">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <TrustBadges />
+
+  <!-- FAQ (visible accordion — also emits FAQPage JSON-LD via extraSchema) -->
+  {service.faq.length > 0 && (
+    <section class="section">
+      <div class="container-wide max-w-4xl">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          {service.title} — common questions
+        </h2>
+        <div class="mt-10 space-y-4">
+          {service.faq.map((f) => (
+            <details class="group rounded-2xl border border-brand-line bg-white p-6 shadow-sm">
+              <summary class="flex cursor-pointer items-start justify-between gap-4 text-lg font-semibold text-brand-ink">
+                <span>{f.q}</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <p class="mt-4 leading-relaxed text-brand-slate">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- SIBLINGS — other services in the same category -->
+  {siblings.length > 0 && (
+    <section class="section bg-white border-y border-brand-line">
+      <div class="container-wide">
+        <span class="eyebrow">{categoryLabel}</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          Other {categoryLabel.toLowerCase()} services
+        </h2>
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {siblings.map((s) => (
+            <ServiceCard
+              title={s.title}
+              href={`/services/${s.category}/${s.slug}`}
+              description={s.short}
+              icon={s.icon}
+              accent={s.accent}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- SERVICE AREA -->
+  <section class="section">
+    <div class="container-wide max-w-4xl text-center">
+      <span class="eyebrow">Coverage</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+        We serve the entire Edmonton metro
+      </h2>
+      <p class="mt-3 text-brand-slate">
+        Click your area for local-specific info, response times, and permit notes.
+      </p>
+      <ul class="mt-8 flex flex-wrap justify-center gap-3">
+        {config.serviceAreas.map((city) => {
+          const citySlug = city.toLowerCase().replace(/\./g, '').replace(/\s+/g, '-');
+          return (
+            <li>
+              <a href={`/service-areas/${citySlug}`} class="inline-flex items-center rounded-full border border-brand-line bg-white px-5 py-2.5 text-sm font-semibold text-brand-ink shadow-soft transition-colors hover:bg-brand-blue-50 hover:text-brand-blue-700">
+                {city}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <CTABanner
+    heading={`Need ${service.title.toLowerCase()} now?`}
+    subheading={`Call ${config.business.phone} or book online — we'll be in touch within one business day.`}
+  />
+</BaseLayout>
+
+<style>
+  /* Markdown prose styles — scoped, no Tailwind Typography plugin needed. */
+  .prose-body :global(h2) {
+    font-size: 1.875rem; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em;
+    color: #0E1320; margin: 2rem 0 1rem;
+  }
+  .prose-body :global(h3) {
+    font-size: 1.375rem; line-height: 1.25; font-weight: 700; letter-spacing: -0.01em;
+    color: #0E1320; margin: 1.75rem 0 0.75rem;
+  }
+  .prose-body :global(p) {
+    font-size: 1.0625rem; line-height: 1.7; color: #3A4256; margin: 0 0 1rem;
+  }
+  .prose-body :global(ul), .prose-body :global(ol) {
+    padding-left: 1.5rem; margin: 0 0 1.25rem;
+    font-size: 1.0625rem; line-height: 1.7; color: #3A4256;
+  }
+  .prose-body :global(li) { margin: 0 0 0.5rem; }
+  .prose-body :global(a) {
+    color: #0858AC; font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
+  }
+  .prose-body :global(a:hover) { color: #03203F; }
+  .prose-body :global(strong) { color: #0E1320; font-weight: 700; }
+  .prose-body :global(table) {
+    width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+    font-size: 0.9375rem;
+  }
+  .prose-body :global(th), .prose-body :global(td) {
+    border: 1px solid #E6E1D8; padding: 0.625rem 0.875rem; text-align: left;
+    vertical-align: top;
+  }
+  .prose-body :global(th) {
+    background: #FAF7F2; font-weight: 700; color: #0E1320;
+  }
+</style>

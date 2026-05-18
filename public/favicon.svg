@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Halo Air">
+  <defs>
+    <linearGradient id="halo" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#1E90FF"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FF5A1F"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC83D"/>
+      <stop offset="100%" stop-color="#FF5A1F"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark backdrop disc -->
+  <circle cx="32" cy="32" r="32" fill="#0A0F1C"/>
+  <!-- Halo upper arc -->
+  <path d="M 8 30 Q 32 6 56 30" fill="none" stroke="url(#halo)" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Sun glyph -->
+  <circle cx="44" cy="18" r="6" fill="url(#sun)"/>
+  <g stroke="#FFC83D" stroke-width="1.5" stroke-linecap="round">
+    <line x1="44" y1="7" x2="44" y2="10"/>
+    <line x1="44" y1="26" x2="44" y2="29"/>
+    <line x1="33" y1="18" x2="36" y2="18"/>
+    <line x1="52" y1="18" x2="55" y2="18"/>
+    <line x1="37" y1="11" x2="39" y2="13"/>
+    <line x1="49" y1="23" x2="51" y2="25"/>
+    <line x1="37" y1="25" x2="39" y2="23"/>
+    <line x1="49" y1="13" x2="51" y2="11"/>
+  </g>
+  <!-- Snowflake glyph -->
+  <g stroke="#3FA9FF" stroke-width="1.8" stroke-linecap="round">
+    <line x1="20" y1="44" x2="20" y2="56"/>
+    <line x1="14" y1="50" x2="26" y2="50"/>
+    <line x1="16" y1="46" x2="24" y2="54"/>
+    <line x1="16" y1="54" x2="24" y2="46"/>
+  </g>
+  <!-- Halo lower swoosh -->
+  <path d="M 12 46 Q 32 60 52 46" fill="none" stroke="url(#halo)" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+</svg>

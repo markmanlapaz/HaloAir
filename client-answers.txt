@@ -1,0 +1,228 @@
+HVAC BUSINESS WEBSITE
+&amp; AI SMART DISPATCHER
+Project Overview &amp; Client Questionnaire
+Prepared by Mark  •  2026 May 17
+SECTION 1
+What We Are Building
+We are building you two things that work together seamlessly — a professional website for your HVAC business, and a smart AI dispatcher that handles your booking and scheduling automatically.
+Your Website
+A fast, modern, mobile-friendly website that ranks well on Google and makes it easy for customers to find you, understand your services, and get in touch. It will be built to perform — meaning real customers searching for HVAC services in your area will find you.
+Your website will include:
+Home page — professional first impression, clear call to action
+Services pages — individual pages for AC repair, furnace installation, maintenance, and more
+About page — who you are, your experience, certifications
+Contact &amp; booking form — easy for customers to request a service call
+Service area pages — targeting the specific cities and regions you cover
+Your AI Smart Dispatcher
+This is the part that sets your business apart. When a customer fills out a booking request on your website, an AI system takes over and handles the scheduling for you — automatically.
+Here is exactly what happens:
+Customer submits a service request on your website
+The AI reads the request and checks your Google Calendar for availability
+The AI books the appointment into your calendar
+The customer receives an automatic confirmation email
+You see the appointment appear in your Google Calendar — nothing else to do
+You stay in control. Before the AI officially confirms any booking, you receive a notification and can approve or reschedule with one tap. Think of it as a 24/7 receptionist that never sleeps and never misses a call.
+SECTION 2
+How We Are Building It
+You do not need to understand the technical details — that is our job. But here is a plain-English overview of how everything fits together, so you know what you are getting.
+Phase
+What It Is
+What It Means For You
+1
+Your Website
+A professionally designed, fast-loading website goes live. Customers can find you on Google and submit service requests.
+2
+Google Calendar Link
+We connect your Google Calendar to the website so your availability is always up to date.
+3
+AI Dispatcher
+The AI brain is switched on. Booking requests from your site are handled automatically, 24 hours a day.
+4
+SEO &amp; Polish
+We fine-tune your Google presence, set up your Google Business Profile, and make sure you are ranking for searches in your area.
+Your website will be hosted on a professional web server maintained by your developer. The AI dispatcher runs on a separate, dedicated service built specifically for this kind of automation. Both are reliable, secure, and backed up.
+SECTION 3
+Your Monthly Running Costs
+Once your site is live, your ongoing costs are low. Here is a transparent breakdown of what you pay, who you pay it to, and what it covers. *Note, costs can change, I try my best to keep them as low as possible.
+Service
+What It Does
+Est. Monthly Cost
+Website Hosting
+Keeps your website live, fast, and secure — managed by your developer
+$20 / month
+Domain Name
+Your web address (e.g. yourbusiness.com) — paid once per year
+~$15–20 / year
+Google Workspace
+Your professional business email and Google Calendar
+~$0 - $7 / month
+AI Dispatcher (Anthropic)
+Powers the smart booking assistant
+~$5–20 / month
+Email Confirmations
+Sends automatic booking emails to customers
+Free to start
+Developer Retainer
+Ongoing maintenance, SEO reporting, AI tuning
+Ask your developer
+Total estimated monthly cost: roughly $32–50 per month — this covers everything including hosting, email, and the AI dispatcher. Your domain name is a separate one-time annual fee of around $15–20. For a business booking even a handful of service calls per week, this pays for itself many times over.
+You will have your own accounts for Google and the AI service. I can set them up with you — you own everything and are never locked in.
+SECTION 4
+Client Questionnaire
+Please fill in as much as you can. Do not worry if you are unsure about something — we will cover any gaps. There are no wrong answers here.
+A  —  Your Business
+What is your full business name?
+The name as it appears legally or as customers know it
+ Halo Air Heating &amp; Cooling Ltd.
+ 
+What phone number should appear on the website?
+ 780-224-0024
+ 
+What is your current business email address?
+e.g. joe@gmail.com — we will set up a professional one for you
+ 
+Haloairhvac@gmail.com
+ 
+ 
+What is your business address?
+Even if you do not want it on the site, we need it for Google
+ 6027 Crawford Drive SW
+ 
+What areas do you service?
+List cities, towns, or regions — as specific as possible
+ Edmonton and surrounding
+ 
+What are your working hours?
+e.g. Mon–Fri 8am–6pm, emergency calls available
+ 8am - 5pm, After hours services available.
+ 
+Do you offer emergency or after-hours service?
+Yes / No — and if yes, how do customers reach you?
+ 
+Yes, email or phone
+How long have you been in business?
+ Incorporate March of 2026, 15 years of industry experience.
+ 
+Do you have any certifications, licences, or trade memberships?
+e.g. Red Seal, TECA, HVAC Excellence, BBB member
+ 
+ Journeyman red Seal Plumber, gasfitted, refrigeration &amp; air conditioning mechanic
+B  —  Your Services
+List all the services you offer
+e.g. AC repair, furnace installation, heat pump, duct cleaning, maintenance plans…
+ 
+Ac, furnace, water heater repair and maintenance, and install. Free estimates for new equipment installation. Maintenance plans(monthly or yearly) is def. In the near future.
+Are there any services you do NOT want advertised on the website?
+ 
+ 
+Do you offer free estimates?
+Yes / No
+ 
+ Yes
+Do you show pricing on your website, or do customers call for a quote?
+ 
+ Customers call for quote.
+Do you offer any financing or payment plans?
+Yes / No — if yes, brief details
+ 
+ Not at the moment.
+C  —  Branding &amp; Visuals
+Do you have a logo?
+If yes, please send the file (PNG or SVG preferred). If no, we can discuss creating one.
+ 
+ Yes, but in open to ideas.
+Do you have brand colours you use?
+If yes, what are they? If no, do you have a colour preference?
+ 
+ Same as logo
+Do you have any photos of your work, van, or team?
+iPhone photos are fine. Please send whatever you have.
+ 
+ Not at the moment
+List 2–3 competitor websites you like the look of
+Just the web addresses — we want to understand your taste
+ 
+ 
+Reliancehomecomfort.com
+Romaniukheatingac.com
+Robsalbertan.ca
+List any websites you strongly dislike the look of
+Helps us understand what to avoid
+ 
+ 
+How would you describe the feel you want for your site?
+e.g. professional, friendly, bold, clean, trustworthy…
+ 
+ Inviting, user friendly. Convenience for every one involved.
+D  —  Your Online Presence
+Do you currently have a website?
+If yes, what is the address?
+ 
+ No
+Do you have a Google Business Profile set up?
+Yes / No / Not sure
+ 
+ Yes
+Do you have any social media pages?
+e.g. Facebook, Instagram — please share the links
+ 
+ Yes
+Do you already own a domain name?
+e.g. myHVACbusiness.com — if yes, who is it registered with?
+ 
+ No
+Do you have any existing Google reviews you are proud of?
+We will highlight these on your site
+ 
+ Yes
+E  —  Scheduling &amp; The AI Dispatcher
+This section helps us set up your smart booking system correctly. Answer as best you can — we will refine the details together.
+Which Google account do you use for Google Calendar?
+The email address — e.g. joehvac@gmail.com
+ 
+Haloairhvac@gmail.com
+ 
+ 
+Do you use a personal Gmail or a Google Workspace (business) account?
+Not sure is fine — we will check together
+ Personal Gmail atm. Haven't paid for Workspace sub yet.
+ 
+How many jobs can you typically take in one day?
+ 
+ 3-5 service calls depending on area.
+How long does each job type usually take?
+e.g. AC repair = 2 hours, Full furnace install = 5 hours, Maintenance visit = 1 hour
+ 
+ 1-2 hours on avg for service. 1.5 for maintenance. Installed are sub contracted to ss heating
+Do you have employees or technicians, or is it just you right now?
+ 
+ Just me
+Would you like to approve each booking before it is confirmed, or have it booked automatically?
+We recommend approval for starters — you can always switch to automatic later
+ 
+ Approval for starters
+Are there any days or times you never want bookings?
+e.g. no Sundays, no bookings after 4pm
+ No bookings after 5pm. Preferably Sundays and Saturdays off. To be able to block off certain windows or dates on my calender would be nice, that way customers cant book into those blocked windows.
+ 
+F  —  Anything Else
+What makes your business different from your competitors?
+In your own words — this becomes the heart of your website copy
+ 
+ 15 years of industry experience, presidents award winner(reliance-2020), right-time award winner(romaniuk-2023)
+Do you have any customer testimonials we can use on the site?
+Even a few sentences from happy customers goes a long way
+ Just my Google reviews for now
+ 
+Is there anything specific you want customers to feel when they visit your site?
+ 
+ Comfortable and trusting
+Is there anything you are worried about or want to make sure we get right?
+ 
+ Hiding my home address(home office) from my customers and public view
+Any other questions or comments for your developer?
+ 
+ Im open to any ideas. I haven't found a software I can use on my phone to track these bookings btw. I would like the dispatcher to be able to group calls to favour a economic driving route. So im not driving back and forth from northside to Southside.
+Thanks MK!
+Thank you for taking the time to complete this — the more detail you give us, the better your end result will be.
+Questions? Just reach out to your developer before your kickoff call.

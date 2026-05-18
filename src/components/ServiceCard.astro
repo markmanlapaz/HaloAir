@@ -1,0 +1,41 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon: 'snowflake' | 'flame' | 'thermo' | 'tools' | 'alert';
+  accent?: 'blue' | 'orange';
+}
+const { title, description, href, icon, accent = 'blue' } = Astro.props;
+
+const accentBg = accent === 'orange' ? 'bg-brand-orange-50' : 'bg-brand-blue-50';
+const accentText = accent === 'orange' ? 'text-brand-orange-600' : 'text-brand-blue-700';
+---
+<a
+  href={href}
+  class="group relative flex h-full flex-col rounded-3xl border border-brand-line bg-white p-6 shadow-soft transition-all duration-200 hover:-translate-y-1 hover:shadow-glow-blue sm:p-8"
+>
+  <span class={`grid h-12 w-12 place-items-center rounded-2xl ${accentBg} ${accentText}`} aria-hidden="true">
+    {icon === 'snowflake' && (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    )}
+    {icon === 'flame' && (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+    )}
+    {icon === 'thermo' && (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+    )}
+    {icon === 'tools' && (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+    )}
+    {icon === 'alert' && (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    )}
+  </span>
+  <h3 class="mt-5 text-xl font-bold tracking-tight">{title}</h3>
+  <p class="mt-2 flex-1 text-sm leading-relaxed text-brand-slate">{description}</p>
+  <span class={`mt-5 inline-flex items-center gap-1 text-sm font-semibold ${accentText} transition-transform group-hover:gap-2`}>
+    Learn more
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </span>
+</a>

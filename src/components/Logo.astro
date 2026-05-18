@@ -1,0 +1,65 @@
+---
+// =============================================================================
+// Logo.astro
+//
+// Renders the official Halo Air brand mark from a single transparent PNG at
+// /public/images/logo.png. The PNG is the complete lockup (halo + HALO AIR
+// wordmark + "Heating & Cooling" subtitle + service iconography), so all
+// three variants render the same asset — they only differ in size.
+//
+// Why <img> instead of Astro's <Image>?
+//   The logo appears in the header on every page and shouldn't be lazy-loaded.
+//   A direct <img> with explicit width/height eliminates CLS without needing
+//   the Image component's transformation overhead for what is already an
+//   appropriately-sized 1024px source.
+//
+// Variants (sizing only):
+//   'mark'    — compact square use (favicon-adjacent, badge slots) ~48px
+//   'full'    — header / nav slots, ~64px
+//   'stacked' — hero showcase, large (~220px+)
+// =============================================================================
+export interface Props {
+  variant?: 'mark' | 'full' | 'stacked';
+  /** Height override in px. If omitted, sensible default per variant. */
+  height?: number;
+  /** Background context — left in API for callsite parity; PNG is transparent
+   *  so it works on both. Used only to set a subtle drop-shadow on dark BGs. */
+  on?: 'light' | 'dark';
+  class?: string;
+  /** alt text override. Defaults to brand-appropriate text. */
+  alt?: string;
+  /** Set true on the homepage hero only — preloads via fetchpriority=high. */
+  eager?: boolean;
+}
+
+const {
+  variant = 'full',
+  height,
+  on = 'light',
+  class: className = '',
+  alt = 'Halo Air Heating & Cooling',
+  eager = false,
+} = Astro.props;
+
+const defaultHeights = { mark: 48, full: 64, stacked: 240 };
+const h = height ?? defaultHeights[variant];
+// The PNG is square (1024×1024), so width = height.
+const w = h;
+
+// On dark surfaces give the logo a soft blue/orange glow to lift it slightly;
+// on light it just renders as-is (the transparent halo has its own brand glow).
+const shadowClass = on === 'dark'
+  ? '[filter:drop-shadow(0_0_24px_rgba(30,144,255,0.35))_drop-shadow(0_0_24px_rgba(255,90,31,0.25))]'
+  : '';
+---
+<img
+  src="/images/logo.png"
+  alt={alt}
+  width={w}
+  height={h}
+  loading={eager ? 'eager' : 'lazy'}
+  decoding="async"
+  fetchpriority={eager ? 'high' : 'auto'}
+  class={`shrink-0 ${shadowClass} ${className}`}
+  style={`height:${h}px;width:auto;`}
+/>

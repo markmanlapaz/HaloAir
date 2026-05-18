@@ -1,0 +1,206 @@
+---
+// =============================================================================
+// Header — sticky top nav with click-to-call CTA always visible.
+//
+// The Services link doubles as a category dropdown (Heating / Cooling / Water
+// / After-Hours). On desktop it expands on hover or focus; on mobile the
+// dropdown becomes a tap-toggled <details>. CSS-only — no JS bundle cost.
+//
+// The phone number is the highest-converting element on an HVAC site, so it
+// gets its own prominent button at every viewport size.
+// =============================================================================
+import config from '~/data/business-config.json';
+import Logo from '~/components/Logo.astro';
+import { getCollection } from 'astro:content';
+
+const cats = await getCollection('serviceCategories');
+const categories = cats
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((c) => ({ slug: c.id, label: c.data.label, short: c.data.short }));
+
+// Sub-services per category for the dropdown. We pull from the same
+// `services` collection used by the page routes so the menu stays in sync
+// without a manual nav list to maintain.
+const allServices = await getCollection('services');
+type SubLink = { category: string; slug: string; label: string };
+const subByCategory: Record<string, SubLink[]> = Object.fromEntries(
+  categories.map((c) => [c.slug, []])
+);
+for (const s of allServices) {
+  if (!s.id.includes('/')) continue;
+  const [cat, slug] = s.id.split('/');
+  if (!subByCategory[cat]) continue;
+  subByCategory[cat].push({ category: cat, slug, label: s.data.title });
+}
+for (const cat of Object.keys(subByCategory)) {
+  subByCategory[cat].sort((a, b) => a.label.localeCompare(b.label));
+}
+
+const nav: Array<{ href: string; label: string; dropdown?: boolean }> = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services', dropdown: true },
+  { href: '/service-areas', label: 'Service Areas' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const phone = config.business.phone;
+const phoneE164 = config.business.phoneE164;
+
+const here = Astro.url.pathname;
+function isActive(href: string) {
+  if (href === '/') return here === '/';
+  return here === href || here.startsWith(href + '/');
+}
+---
+<header class="sticky top-0 z-40 border-b border-brand-line bg-brand-cream/85 backdrop-blur-md">
+  <div class="container-wide flex h-16 items-center justify-between sm:h-20">
+    <!-- Logo -->
+    <a href="/" class="group flex items-center" aria-label={`${config.business.shortName} home`}>
+      <Logo variant="full" height={52} on="light" class="transition-transform group-hover:-translate-y-0.5" eager={true} />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {nav.map(({ href, label, dropdown }) => {
+        const active = isActive(href);
+        if (!dropdown) {
+          return (
+            <a
+              href={href}
+              aria-current={active ? 'page' : undefined}
+              class:list={[
+                'rounded-full px-4 py-2 text-sm font-medium transition-colors',
+                active
+                  ? 'bg-white text-brand-ink shadow-sm'
+                  : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+              ]}
+            >
+              {label}
+            </a>
+          );
+        }
+        // Services dropdown — opens on hover (desktop) or keyboard focus.
+        return (
+          <div class="group/dd relative">
+            <a
+              href={href}
+              aria-current={active ? 'page' : undefined}
+              aria-haspopup="true"
+              class:list={[
+                'inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors',
+                active
+                  ? 'bg-white text-brand-ink shadow-sm'
+                  : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+              ]}
+            >
+              {label}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover/dd:rotate-180" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+            <div
+              role="menu"
+              class="invisible absolute left-1/2 top-full z-50 mt-2 w-[520px] -translate-x-1/2 rounded-2xl border border-brand-line bg-white p-3 opacity-0 shadow-soft transition-all duration-150 group-hover/dd:visible group-hover/dd:opacity-100 group-focus-within/dd:visible group-focus-within/dd:opacity-100"
+            >
+              <div class="grid grid-cols-3 gap-2">
+                {categories.map((c) => (
+                  <div class="rounded-xl p-3 transition-colors hover:bg-brand-cream/70">
+                    <a
+                      href={`/services/${c.slug}`}
+                      class="block text-sm font-bold text-brand-ink hover:text-brand-blue-700"
+                      role="menuitem"
+                    >
+                      {c.label}
+                    </a>
+                    <ul class="mt-2 space-y-1">
+                      {subByCategory[c.slug].map((s) => (
+                        <li>
+                          <a
+                            href={`/services/${s.category}/${s.slug}`}
+                            class="block text-xs text-brand-slate transition-colors hover:text-brand-blue-700"
+                            role="menuitem"
+                          >
+                            {s.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <div class="mt-2 border-t border-brand-line/70 pt-2">
+                <a
+                  href="/services/after-hours"
+                  class="block rounded-lg px-3 py-2 text-sm font-semibold text-brand-orange-600 hover:bg-brand-orange-50"
+                  role="menuitem"
+                >
+                  After-Hours Service →
+                </a>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </nav>
+
+    <!-- Always-visible actions -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a
+        href={`tel:${phoneE164}`}
+        class="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-brand-blue-700 transition-colors hover:bg-brand-blue-50 sm:inline-flex"
+        aria-label={`Call ${phone}`}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        {phone}
+      </a>
+      <a href="/book" class="btn-primary !px-4 !py-2 !text-sm">
+        Book Service
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile nav (visible below lg). Services row expands into category accordion. -->
+  <nav class="border-t border-brand-line bg-white/40 lg:hidden" aria-label="Primary mobile">
+    <div class="container-wide flex justify-between gap-1 overflow-x-auto py-2 text-sm">
+      {nav.map(({ href, label, dropdown }) => {
+        const active = isActive(href);
+        if (!dropdown) {
+          return (
+            <a
+              href={href}
+              aria-current={active ? 'page' : undefined}
+              class:list={[
+                'whitespace-nowrap rounded-full px-3 py-1.5 font-medium transition-colors',
+                active
+                  ? 'bg-white text-brand-ink shadow-sm'
+                  : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+              ]}
+            >
+              {label}
+            </a>
+          );
+        }
+        // Mobile Services entry stays a normal link to the hub — the dropdown
+        // pattern doesn't make sense in a single-row mobile bar, so the
+        // category cards on /services do that job.
+        return (
+          <a
+            href={href}
+            aria-current={active ? 'page' : undefined}
+            class:list={[
+              'whitespace-nowrap rounded-full px-3 py-1.5 font-medium transition-colors',
+              active
+                ? 'bg-white text-brand-ink shadow-sm'
+                : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+            ]}
+          >
+            {label}
+          </a>
+        );
+      })}
+    </div>
+  </nav>
+</header>

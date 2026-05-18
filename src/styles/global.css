@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------------------- */
+/* Base typography + body styles                                              */
+/* -------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight text-brand-ink;
+  }
+
+  /* Make focus-visible obvious for keyboard users (a11y requirement). */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-blue-600 ring-offset-2 ring-offset-brand-cream;
+  }
+
+  /* Respect users who prefer reduced motion (WCAG 2.3.3). */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reusable component classes                                                 */
+/* -------------------------------------------------------------------------- */
+@layer components {
+  /* Primary CTA — brand orange. Used for booking, "call now", main actions. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-brand-orange-500 px-6 py-3 text-base font-semibold text-white
+           shadow-glow-orange transition-all duration-200
+           hover:bg-brand-orange-600 hover:-translate-y-0.5
+           focus-visible:ring-brand-orange-600;
+  }
+
+  /* Secondary CTA — brand blue. Used for "learn more", service navigation. */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-brand-blue-600 px-6 py-3 text-base font-semibold text-white
+           shadow-glow-blue transition-all duration-200
+           hover:bg-brand-blue-700 hover:-translate-y-0.5;
+  }
+
+  /* Ghost CTA — outlined on cream. Used for tertiary actions. */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           border border-brand-line bg-white/60 px-6 py-3 text-base
+           font-semibold text-brand-ink backdrop-blur
+           transition-all duration-200 hover:bg-white hover:-translate-y-0.5;
+  }
+
+  /* Centered max-width container. */
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Section vertical rhythm. */
+  .section {
+    @apply py-16 sm:py-24 lg:py-32;
+  }
+
+  /* Surface card — used for service cards, trust cards, form wrapper. */
+  .card {
+    @apply rounded-3xl border border-brand-line bg-white p-6 sm:p-8 shadow-soft;
+  }
+
+  /* Eyebrow label — small uppercase tag above section titles. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-blue-50
+           px-3 py-1 text-xs font-semibold uppercase tracking-wider
+           text-brand-blue-700;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Skip-to-content link — visually hidden until focused (a11y)                */
+/* -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: #0E1320;
+  color: #FAF7F2;
+  border-radius: 0.5rem;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 1rem;
+}

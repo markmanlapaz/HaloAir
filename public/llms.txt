@@ -1,0 +1,70 @@
+# Halo Air Heating & Cooling Ltd.
+
+> Edmonton-based heating, cooling, plumbing and gas specialists. Family-run, fully licensed in Alberta. AC repair, furnace service, water heater service, maintenance, and after-hours service across Edmonton + Sherwood Park, St. Albert, Spruce Grove, Stony Plain, Leduc, Beaumont, Fort Saskatchewan.
+
+Halo Air Heating & Cooling Ltd. is a licensed and insured HVAC contractor serving the Edmonton metro area in Alberta, Canada. Four trades under one roof — Red Seal Journeyman Plumber, Journeyman Gasfitter, Refrigeration Mechanic, and Air Conditioning Mechanic. Tagline: "Next-level Comfort". Award-winning HVAC technician with 15 years of industry experience.
+
+## Contact
+
+- Phone: 780-224-0024 (call or text)
+- Email: haloairhvac@gmail.com
+- Hours: Monday–Friday 8am–5pm. Weekends closed.
+- After-hours: Available on request — call or email
+- Service area: Edmonton + surrounding (8 cities, listed below) — service-area only, home office address not publicly listed
+- Currency: CAD
+- Payment: Cash, credit card, debit, e-Transfer
+
+## Services
+
+<!-- TODO: replace example.com with production domain at deploy time -->
+
+### Heating ([category landing](https://example.com/services/heating/))
+- [Furnace Repair](https://example.com/services/heating/furnace-repair/): Same-week diagnosis and repair for residential furnaces — all major brands, written quote before any work.
+- [Furnace Installation](https://example.com/services/heating/furnace-installation/): High-efficiency furnace replacement, Manual J load calc, federal/provincial rebate paperwork handled.
+- [Furnace Maintenance](https://example.com/services/heating/furnace-maintenance/): Annual fall 23-point tune-up — preserves manufacturer warranty, prevents winter breakdowns.
+
+### Cooling ([category landing](https://example.com/services/cooling/))
+- [AC Repair](https://example.com/services/cooling/ac-repair/): Fast diagnosis and repair for residential and light-commercial cooling. Refrigerant-licensed (R-410A, R-32).
+- [AC Installation](https://example.com/services/cooling/ac-installation/): New central AC installs sized to your home. Free estimate, combined furnace + AC pricing available.
+- [AC Maintenance](https://example.com/services/cooling/ac-maintenance/): Spring 18-point AC tune-up — coil cleaning, refrigerant pressure check, condition report.
+
+### Water Heaters ([category landing](https://example.com/services/water/))
+- [Water Heater Repair](https://example.com/services/water/water-heater-repair/): Tank and tankless repair — leaks, no hot water, lukewarm output, error codes. Priority dispatch on active leaks.
+- [Water Heater Installation](https://example.com/services/water/water-heater-installation/): New tank installation, current Alberta code (expansion tank, T&P discharge, seismic strap). Red Seal Plumber + Gasfitter on every job.
+- [Tankless Water Heaters](https://example.com/services/water/tankless-water-heaters/): On-demand water heater installation and service — Navien, Rinnai, Noritz, Bosch, A.O. Smith.
+
+### Standalone
+- [After-Hours Service](https://example.com/services/after-hours/): After-hours response for no-heat, no-cool, gas leaks, and burst-pipe situations. Call or email and we'll work to get to you as soon as possible.
+
+## Service Areas
+
+- [Edmonton](https://example.com/service-areas/edmonton/)
+- [Sherwood Park](https://example.com/service-areas/sherwood-park/)
+- [St. Albert](https://example.com/service-areas/st-albert/)
+- [Spruce Grove](https://example.com/service-areas/spruce-grove/)
+- [Stony Plain](https://example.com/service-areas/stony-plain/)
+- [Leduc](https://example.com/service-areas/leduc/)
+- [Beaumont](https://example.com/service-areas/beaumont/)
+- [Fort Saskatchewan](https://example.com/service-areas/fort-saskatchewan/)
+
+## Guides
+
+- [How much does a furnace replacement cost in Edmonton?](https://example.com/blog/furnace-replacement-cost-edmonton/)
+- [Repair vs replace: when does your AC need replacement?](https://example.com/blog/repair-vs-replace-ac/)
+- [Signs your furnace is failing — Edmonton homeowner checklist](https://example.com/blog/signs-furnace-failing-edmonton/)
+- [Annual furnace maintenance checklist for Alberta homeowners](https://example.com/blog/annual-furnace-maintenance-checklist/)
+- [Emergency no-heat in winter: what to do before help arrives](https://example.com/blog/emergency-no-heat-what-to-do/)
+- [How to choose an HVAC contractor in Edmonton](https://example.com/blog/choosing-hvac-contractor-edmonton/)
+
+## Booking & quotes
+
+To book a service visit or request a quote, use the online booking form at https://example.com/book/ or call 780-224-0024. Online requests are confirmed within one business day. After-hours service is available on request — call or email.
+
+## Certifications
+
+- Red Seal Journeyman Plumber
+- Journeyman Gasfitter
+- Refrigeration Mechanic
+- Air Conditioning Mechanic
+
+Award-winning HVAC technician with 15 years of industry experience. All work fully insured. Free written estimates on new equipment installs. Upfront pricing before any work begins.

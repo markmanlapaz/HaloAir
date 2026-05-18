@@ -1,0 +1,71 @@
+---
+// =============================================================================
+// ServiceBadges.astro
+// The "Plumbing • Gasfitter • Refrigeration • Air Conditioning" badge row
+// pulled directly from the client's logo lockup. Used on the homepage hero
+// and the booking page to reinforce the four-trades story.
+// =============================================================================
+export interface Props {
+  on?: 'light' | 'dark';
+  class?: string;
+}
+const { on = 'light', class: className = '' } = Astro.props;
+
+const badges = [
+  {
+    label: 'Plumbing',
+    icon: 'drop',
+    bg: on === 'dark' ? 'bg-brand-blue-600/25' : 'bg-brand-blue-50',
+    text: on === 'dark' ? 'text-brand-blue-100' : 'text-brand-blue-700',
+  },
+  {
+    label: 'Gasfitter',
+    icon: 'flame',
+    bg: on === 'dark' ? 'bg-red-600/25' : 'bg-red-50',
+    text: on === 'dark' ? 'text-red-100' : 'text-red-700',
+  },
+  {
+    label: 'Refrigeration',
+    icon: 'snowflake',
+    bg: on === 'dark' ? 'bg-brand-blue-600/25' : 'bg-brand-blue-50',
+    text: on === 'dark' ? 'text-brand-blue-100' : 'text-brand-blue-700',
+  },
+  {
+    label: 'Air Conditioning',
+    icon: 'fan',
+    bg: on === 'dark' ? 'bg-brand-orange-500/25' : 'bg-brand-orange-50',
+    text: on === 'dark' ? 'text-brand-orange-100' : 'text-brand-orange-700',
+  },
+] as const;
+---
+<ul class={`flex flex-wrap items-center gap-2 sm:gap-3 ${className}`} aria-label="Trades we cover">
+  {badges.map((b) => (
+    <li class={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider ${b.bg} ${b.text}`}>
+      {b.icon === 'drop' && (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2c-3 5-7 9-7 13a7 7 0 0 0 14 0c0-4-4-8-7-13z" />
+        </svg>
+      )}
+      {b.icon === 'flame' && (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2c1 3 3 4 3 7a3 3 0 0 1-3 3 3 3 0 0 1-2-1c-.5 2 1 4 1 6a4 4 0 1 1-8 0c0-5 5-9 5-15 2 1 4 0 4 0z" />
+        </svg>
+      )}
+      {b.icon === 'snowflake' && (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
+        </svg>
+      )}
+      {b.icon === 'fan' && (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="12" r="2.5"/>
+          <path d="M12 9.5C12 5 14 2 17 2c2 0 3 2 3 4 0 3-3 5-8 3.5z" opacity="0.85"/>
+          <path d="M14.5 12C19 12 22 14 22 17c0 2-2 3-4 3-3 0-5-3-3.5-8z" opacity="0.85"/>
+          <path d="M12 14.5C12 19 10 22 7 22c-2 0-3-2-3-4 0-3 3-5 8-3.5z" opacity="0.85"/>
+          <path d="M9.5 12C5 12 2 10 2 7c0-2 2-3 4-3 3 0 5 3 3.5 8z" opacity="0.85"/>
+        </svg>
+      )}
+      {b.label}
+    </li>
+  ))}
+</ul>

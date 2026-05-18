@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "WebFetch(domain:share.google)",
+      "WebFetch(domain:www.google.com)",
+      "WebSearch",
+      "Bash(find \"C:/Users/markm/AppData/Local/Temp\" -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" \\\\\\) -newer \"C:/Users/markm/Desktop/HaloAir/package.json\" 2>/dev/null | head -20; echo \"---\"; ls \"C:/Users/markm/Desktop/HaloAir/public/images/\" 2>/dev/null || echo \"no public/images dir yet\")",
+      "Bash(file \"C:/Users/markm/Desktop/HaloAir/public/images/\"*.png)",
+      "Bash(node -e \"try { const sharp = require\\('sharp'\\); console.log\\('sharp version:', sharp.versions.sharp\\); } catch\\(e\\) { console.log\\('sharp NOT installed, error:', e.code\\); }\")",
+      "Bash(node scripts/generate-og.mjs)",
+      "Bash(find \"C:/Users/markm/Desktop/HaloAir\" -maxdepth 3 -type f \\\\\\( -iname \"*.md\" -o -iname \"*.pdf\" -o -iname \"*.docx\" \\\\\\) -not -path \"*/node_modules/*\" -not -path \"*/.astro/*\" -not -path \"*/dist/*\" -not -path \"*/src/content/*\" 2>/dev/null; echo \"---\"; find \"C:/Users/markm/Desktop\" -maxdepth 3 -type f -iname \"*onboard*\" -o -iname \"*questionnaire*\" -o -iname \"*overview*\" 2>/dev/null | grep -v node_modules | head)",
+      "Bash(pandoc \"C:/Users/markm/Desktop/HVAC-Project-Overview-Questionnaire-Lean.docx\" -o /tmp/lean.md)",
+      "Read(//tmp/**)",
+      "Bash(where pandoc *)",
+      "Read(//c/Program Files/**)",
+      "Bash(npm list *)",
+      "Bash(python -c ' *)",
+      "Bash(python C:/Users/markm/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/35db27fc-257d-44c0-b4ad-6daa33f5656c/60687039-f756-4b5c-a02d-40866a3f13b7/skills/docx/scripts/office/validate.py C:/Users/markm/Desktop/Halo-Air-Project-Overview-Questionnaire.docx)",
+      "Bash(python C:/Users/markm/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/35db27fc-257d-44c0-b4ad-6daa33f5656c/60687039-f756-4b5c-a02d-40866a3f13b7/skills/docx/scripts/office/soffice.py --headless --convert-to pdf --outdir /tmp C:/Users/markm/Desktop/Halo-Air-Project-Overview-Questionnaire.docx)",
+      "Bash(where soffice *)",
+      "Read(//c/Program Files \\(x86\\)/LibreOffice/program/**)",
+      "Bash(pandoc --track-changes=all \"C:\\\\Users\\\\markm\\\\Downloads\\\\HaloAir-ProjectScope-Initial \\(1\\).docx\" -o \"C:\\\\Users\\\\markm\\\\Desktop\\\\HaloAir\\\\client-answers.md\")",
+      "PowerShell(pandoc --track-changes=all \"C:\\\\Users\\\\markm\\\\Downloads\\\\HaloAir-ProjectScope-Initial \\(1\\).docx\" -o \"C:\\\\Users\\\\markm\\\\Desktop\\\\HaloAir\\\\client-answers.md\")",
+      "Bash(rm \"C:\\\\Users\\\\markm\\\\Desktop\\\\HaloAir\\\\src\\\\pages\\\\services\\\\[slug].astro\" && ls \"C:\\\\Users\\\\markm\\\\Desktop\\\\HaloAir\\\\src\\\\pages\\\\services\")",
+      "Bash(ls -lt \"C:/Users/markm/AppData/Local/Temp\" 2>/dev/null | head -20)",
+      "Bash(python -c 'from PIL import Image; import sys *)"
+    ]
+  }
+}

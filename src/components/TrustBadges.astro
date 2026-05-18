@@ -1,0 +1,33 @@
+---
+import config from '~/data/business-config.json';
+
+const badges = [
+  { value: `${config.business.yearsExperience}+`, label: 'Years HVAC experience' },
+  { value: 'Award', label: 'Award-winning technician' },
+  { value: 'Free', label: 'Estimates on new equipment' },
+  { value: 'A–Z', label: 'Plumbing • Gas • HVAC' },
+];
+---
+<section class="section pt-8">
+  <div class="container-wide">
+    <div class="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-brand-line bg-brand-line lg:grid-cols-4">
+      {badges.map((b) => (
+        <div class="bg-white px-6 py-8 text-center">
+          <p class="text-3xl font-extrabold text-brand-blue-700 sm:text-4xl">{b.value}</p>
+          <p class="mt-1 text-sm font-medium text-brand-slate">{b.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-brand-slate">
+      {config.trustSignals.certifications.map((cert) => (
+        <li class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-blue-600" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          {cert}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

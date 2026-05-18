@@ -1,0 +1,48 @@
+User-agent: *
+Allow: /
+
+# ---------------------------------------------------------------------------
+# AI / LLM crawlers — explicitly allowed.
+# Halo Air wants to be cited by AI Overviews, ChatGPT search, Perplexity,
+# Claude, Apple Intelligence, etc. Each major AI crawler is listed by name
+# to make the allow-decision unambiguous (some respect a wildcard, some
+# only respect a named directive).
+# ---------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# TODO: replace example.com with the production domain at deploy time.
+Sitemap: https://example.com/sitemap-index.xml

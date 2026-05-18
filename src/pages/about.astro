@@ -1,0 +1,170 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Breadcrumb from '~/components/Breadcrumb.astro';
+import CTABanner from '~/components/CTABanner.astro';
+import TrustBadges from '~/components/TrustBadges.astro';
+import ServiceBadges from '~/components/ServiceBadges.astro';
+import Logo from '~/components/Logo.astro';
+import config from '~/data/business-config.json';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+];
+
+const yearsExperience = config.business.yearsExperience;
+---
+<BaseLayout
+  title="About Halo Air Heating & Cooling — Edmonton's Four-Trade HVAC Team"
+  description="Halo Air is an Edmonton-based, family-run HVAC, plumbing and gas contractor. Award-winning Red Seal technician with 15 years of experience — plumbing, gasfitter, refrigeration, and AC under one roof. Licensed, insured, locally accountable."
+  canonicalPath="/about"
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} class="border-b border-brand-line bg-white" />
+
+  <section class="section pt-12">
+    <div class="container-wide">
+      <div class="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <span class="eyebrow">About Halo Air</span>
+          <h1 class="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
+            Four trades. One team. <span class="text-brand-blue-700">One number to call.</span>
+          </h1>
+          <p class="mt-5 text-lg leading-relaxed text-brand-slate">
+            Halo Air Heating &amp; Cooling Ltd. is an Edmonton-based, family-run
+            HVAC contractor. We carry full Journeyman tickets across the four
+            trades that keep a home running — Plumbing, Gasfitter (B Ticket),
+            Refrigeration, and Air Conditioning — which means we handle the
+            whole job, not just the parts our license happens to cover.
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-brand-slate">
+            The owner brings {yearsExperience} years of HVAC industry
+            experience — including multiple industry awards — to every job in
+            the Edmonton metro. Halo Air's reputation is built on word-of-mouth
+            and 5-star Google reviews, not billboards.
+          </p>
+          <ServiceBadges class="mt-7" on="light" />
+        </div>
+
+        <div class="card bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-orange-500 !border-0 text-white p-10">
+          <Logo variant="mark" height={80} on="dark" />
+          <p class="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-white/75">Halo Air, by the numbers</p>
+          <dl class="mt-4 grid grid-cols-2 gap-6">
+            <div>
+              <dt class="text-xs text-white/70">Trades certified</dt>
+              <dd class="text-3xl font-extrabold">4</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-white/70">Years HVAC experience</dt>
+              <dd class="text-3xl font-extrabold">{yearsExperience}+</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-white/70">Award-winning technician</dt>
+              <dd class="text-3xl font-extrabold">★</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-white/70">Cities served</dt>
+              <dd class="text-3xl font-extrabold">{config.serviceAreas.length}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBadges />
+
+  <section class="section bg-white border-y border-brand-line">
+    <div class="container-wide grid gap-12 lg:grid-cols-2">
+      <div>
+        <span class="eyebrow">How we work</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          A trades business, not a sales operation.
+        </h2>
+        <p class="mt-4 text-brand-slate">
+          The HVAC industry has a marketing problem. Many companies have
+          out-grown their service capacity by chasing scale — call centres,
+          commission-driven techs, "today only" pricing. Halo Air's the other
+          direction: a small, accountable team that does the work itself,
+          treats every quote as a written promise, and grows by referral.
+        </p>
+        <ul class="mt-6 space-y-4 text-brand-slate">
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">Written quotes before work starts.</strong> No verbal estimates, no surprise line items. What you sign is what you pay.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">No sub-contractors.</strong> The crew that quotes the job does the job. The crew that does the job warranties the job.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">Manual J load calcs on every install.</strong> Equipment sizing matters more than equipment brand. We do the math in your home, not on the back of a business card.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">2-year labour warranty</strong>, on top of the manufacturer's parts warranty. Same-day response on warranty callbacks.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-orange-600" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong class="text-brand-ink">Real local phone, every call.</strong> A real human picks up — no phone tree, no contracted call centre overseas. After-hours service is available on request.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <span class="eyebrow">Certifications</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          What "licensed" actually means.
+        </h2>
+        <p class="mt-4 text-brand-slate">
+          Alberta's tradesperson certification is rigorous. Each ticket below
+          requires 8,000+ apprenticeship hours, completed technical training,
+          and successful inter-provincial examinations. Halo Air carries
+          journeyman-level certification in each:
+        </p>
+        <div class="mt-6 grid gap-3">
+          {config.trustSignals.certifications.map((c) => (
+            <div class="flex items-center gap-4 rounded-2xl border border-brand-line bg-white px-5 py-4 shadow-sm">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-brand-blue-100 text-brand-blue-700">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="font-bold text-brand-ink">{c}</span>
+            </div>
+          ))}
+        </div>
+        <p class="mt-5 text-sm text-brand-slate">
+          Licensed by the Alberta Apprenticeship and Industry Training Board.
+          Fully insured for liability and WCB. Bonded.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-wide max-w-3xl text-center">
+      <span class="eyebrow">Our service area</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+        Edmonton + 7 surrounding cities.
+      </h2>
+      <p class="mt-3 text-brand-slate">
+        We focus tightly on the Edmonton metro so we can be there fast and
+        keep our pricing honest. No travel surcharges anywhere in our area.
+      </p>
+      <ul class="mt-8 flex flex-wrap justify-center gap-3">
+        {config.serviceAreas.map((city) => {
+          const slug = city.toLowerCase().replace(/\./g, '').replace(/\s+/g, '-');
+          return (
+            <li>
+              <a href={`/service-areas/${slug}`} class="inline-flex items-center rounded-full border border-brand-line bg-white px-5 py-2.5 text-sm font-semibold text-brand-ink shadow-soft transition-colors hover:bg-brand-blue-50 hover:text-brand-blue-700">
+                {city}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>

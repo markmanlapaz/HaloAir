@@ -1,0 +1,64 @@
+---
+// =============================================================================
+// Breadcrumb.astro — visual + JSON-LD breadcrumbs
+//
+// Pass an explicit `items` array, or omit and the component will derive a
+// reasonable breadcrumb from the URL path. The schema emission lives in
+// BaseLayout (via the `breadcrumbs` prop) so a single JSON-LD block is
+// rendered per page in the right place; this component just renders the UI.
+// =============================================================================
+import type { BreadcrumbItem } from '~/lib/schema';
+
+export interface Props {
+  items?: BreadcrumbItem[];
+  class?: string;
+}
+
+const { items: providedItems, class: className = '' } = Astro.props;
+
+// Auto-derive breadcrumbs from URL if none provided. e.g. /services/ac-repair
+// becomes [Home, Services, AC Repair]. Title-cases each segment with a few
+// known acronym preserves (AC, HVAC).
+function titleize(slug: string): string {
+  return slug
+    .split('-')
+    .map((w) => {
+      if (w.toLowerCase() === 'ac') return 'AC';
+      if (w.toLowerCase() === 'hvac') return 'HVAC';
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    })
+    .join(' ');
+}
+
+function derive(pathname: string): BreadcrumbItem[] {
+  const segments = pathname.split('/').filter(Boolean);
+  const items: BreadcrumbItem[] = [{ name: 'Home', href: '/' }];
+  let acc = '';
+  for (const seg of segments) {
+    acc += '/' + seg;
+    items.push({ name: titleize(seg), href: acc });
+  }
+  return items;
+}
+
+const items = providedItems ?? derive(Astro.url.pathname);
+const last = items.length - 1;
+---
+<nav aria-label="Breadcrumb" class={`text-sm ${className}`}>
+  <ol class="container-wide flex flex-wrap items-center gap-1.5 py-4 text-brand-slate">
+    {items.map((item, i) => (
+      <li class="flex items-center gap-1.5">
+        {i > 0 && (
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-line" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        )}
+        {i === last ? (
+          <span class="font-semibold text-brand-ink" aria-current="page">{item.name}</span>
+        ) : (
+          <a href={item.href} class="hover:text-brand-ink transition-colors">{item.name}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

@@ -1,0 +1,143 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Breadcrumb from '~/components/Breadcrumb.astro';
+import config from '~/data/business-config.json';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Terms', href: '/terms' },
+];
+
+const lastUpdated = '2026-05-17';
+---
+<BaseLayout
+  title="Terms of Service — Halo Air Heating & Cooling"
+  description="Terms governing your use of the Halo Air website and services provided by Halo Air Heating & Cooling Ltd. in Alberta, Canada."
+  canonicalPath="/terms"
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} class="border-b border-brand-line bg-white" />
+
+  <section class="section">
+    <div class="container-wide max-w-3xl">
+      <span class="eyebrow">Legal</span>
+      <h1 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">Terms of Service</h1>
+      <p class="mt-3 text-sm text-brand-slate">Last updated: {lastUpdated}</p>
+
+      <div class="prose-body mt-10">
+        <p>
+          These terms govern your use of this website and any services
+          provided by Halo Air Heating &amp; Cooling Ltd. ("Halo Air", "we",
+          "us", "our"). By using this site or engaging us for service, you
+          agree to these terms.
+        </p>
+
+        <h2>Website use</h2>
+        <p>
+          This site is provided as a public information resource and a means
+          to request service. You may use it for personal, non-commercial
+          purposes. You may not scrape, mirror, or redistribute the site's
+          content without our written permission. All content (text, images,
+          logos, layout) is the property of Halo Air or its licensors.
+        </p>
+
+        <h2>Service requests</h2>
+        <p>
+          Submitting a booking or contact form does not create a binding
+          service contract. We will respond with confirmation and, where
+          applicable, a written service quote. A binding agreement is formed
+          only when you accept a written quote in writing (signed paper, email
+          confirmation, or other written authorization).
+        </p>
+
+        <h2>Quotes and pricing</h2>
+        <p>
+          Written quotes are valid for 30 days unless otherwise stated.
+          Diagnostic-visit fees are disclosed before any work begins. After-hours
+          dispatch fees apply to service outside our regular hours and are
+          disclosed at the time of dispatch. We do not perform work without
+          your written or verbal authorization.
+        </p>
+
+        <h2>Warranties</h2>
+        <p>
+          Equipment we install carries the manufacturer's parts warranty
+          (typically 10 years on furnaces, AC units, and water heaters, subject
+          to registration and annual maintenance). Our labour warranty is two
+          (2) years on installations, ninety (90) days on repairs, from the
+          date of completion. Warranty work is provided at no charge during
+          the warranty period for defects in materials or workmanship.
+          Warranties do not cover:
+        </p>
+        <ul>
+          <li>Damage from misuse, neglect, or unauthorized modifications</li>
+          <li>Issues arising from power surges, freezing, flooding, fire, or other external events</li>
+          <li>Equipment serviced by parties other than Halo Air or an authorized provider</li>
+          <li>Cosmetic wear that does not affect function</li>
+        </ul>
+
+        <h2>Payment terms</h2>
+        <p>
+          Payment is due on completion of service unless otherwise agreed in
+          writing. We accept cash, e-Transfer, credit card, and debit. Late
+          payments may accrue interest at 1.5% per month (19.56% annually).
+          Unpaid invoices may be referred to collections.
+        </p>
+
+        <h2>Cancellation and rescheduling</h2>
+        <p>
+          You may cancel or reschedule a booked service with no charge if you
+          notify us at least 24 hours before the scheduled time. Cancellations
+          inside 24 hours may incur a $75 dispatch fee. Emergency dispatch
+          cancellations after the technician has departed may incur the full
+          dispatch fee.
+        </p>
+
+        <h2>Limitation of liability</h2>
+        <p>
+          Halo Air's liability for any claim arising from our service is
+          limited to the value of the work performed for you. We are not
+          liable for indirect, consequential, or incidental damages
+          (e.g. lost food due to refrigeration failure, hotel costs during
+          repair) unless caused by gross negligence on our part. Nothing in
+          these terms limits liability for personal injury or death where such
+          limitation is prohibited by law.
+        </p>
+
+        <h2>Governing law</h2>
+        <p>
+          These terms are governed by the laws of the Province of Alberta and
+          the federal laws of Canada applicable in Alberta. Any dispute
+          arising under these terms is subject to the exclusive jurisdiction
+          of the courts of Alberta.
+        </p>
+
+        <h2>Changes to these terms</h2>
+        <p>
+          We may update these terms as our practices evolve or as required by
+          law. Material changes will be reflected by a new "Last updated" date
+          at the top of this page.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about these terms? Reach out:
+        </p>
+        <ul>
+          <li>Email: <a href={`mailto:${config.business.email}`}>{config.business.email}</a></li>
+          <li>Phone: <a href={`tel:${config.business.phoneE164}`}>{config.business.phone}</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose-body :global(h2) { font-size: 1.5rem; font-weight: 800; color: #0E1320; margin: 2rem 0 0.75rem; }
+  .prose-body :global(p), .prose-body :global(li) { font-size: 1rem; line-height: 1.7; color: #3A4256; }
+  .prose-body :global(p) { margin: 0 0 1rem; }
+  .prose-body :global(ul) { padding-left: 1.5rem; margin: 0 0 1.25rem; }
+  .prose-body :global(li) { margin: 0 0 0.4rem; }
+  .prose-body :global(a) { color: #0858AC; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .prose-body :global(strong) { color: #0E1320; font-weight: 700; }
+</style>

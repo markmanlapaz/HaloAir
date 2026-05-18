@@ -1,0 +1,143 @@
+---
+// =============================================================================
+// HeroQuickForm.astro
+//
+// Compact 3-field lead capture card that lives in the homepage hero's right
+// column. On submit, builds a querystring (name / phone / service) and
+// navigates to /book so the full BookingForm.astro can be prefilled — that
+// component captures address, urgency, time window, and problem description.
+//
+// No network calls here, and no localStorage/sessionStorage (per project rule).
+// =============================================================================
+import config from '~/data/business-config.json';
+
+const phone = config.business.phone;
+const phoneE164 = config.business.phoneE164;
+
+// Same iteration pattern as BookingForm.astro:24-32 so the option values stay
+// in sync with the full form.
+const categoryGroups = Object.entries(config.serviceCategories).map(([key, cat]) => ({
+  key,
+  label: cat.label,
+  options: Object.entries(cat.services).map(([slug, s]) => ({ value: slug, label: s.label })),
+}));
+const standaloneGroup = {
+  label: 'Other',
+  options: Object.entries(config.standaloneServices).map(([slug, s]) => ({ value: slug, label: s.label })),
+};
+---
+<div class="relative mx-auto w-full max-w-md">
+  <!-- Soft brand-orange halo behind the card, matches existing hero halos. -->
+  <span aria-hidden="true" class="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-brand-orange-200/60 blur-3xl"></span>
+  <span aria-hidden="true" class="absolute -left-10 bottom-0 h-48 w-48 rounded-full bg-brand-blue-200/60 blur-3xl"></span>
+
+  <div class="relative overflow-hidden rounded-[2rem] border border-brand-line bg-white shadow-soft">
+    <!-- Colored header strip echoes the inspirations' form headers. -->
+    <div class="bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 px-6 py-5 text-white sm:px-7">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
+        <span class="h-1.5 w-1.5 rounded-full bg-brand-orange-400 animate-pulse"></span>
+        Free Estimate
+      </span>
+      <h2 class="mt-2 text-2xl font-extrabold leading-tight">Book your visit</h2>
+      <p class="mt-1 text-sm text-white/80">
+        We'll confirm within one business day. No pressure, no obligation.
+      </p>
+    </div>
+
+    <form
+      id="hero-quick-form"
+      novalidate
+      class="space-y-4 px-6 py-6 sm:px-7"
+      aria-labelledby="hero-quick-form-heading"
+    >
+      <div>
+        <label for="hqf-name" class="mb-1.5 block text-sm font-semibold">Full name</label>
+        <input
+          id="hqf-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+          placeholder="Jane Doe"
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600 focus:outline-none focus:ring-2 focus:ring-brand-blue-200"
+        />
+      </div>
+
+      <div>
+        <label for="hqf-phone" class="mb-1.5 block text-sm font-semibold">Phone</label>
+        <input
+          id="hqf-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          required
+          pattern="[\d\s\-\(\)\+]{10,}"
+          placeholder="(780) 555-1234"
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600 focus:outline-none focus:ring-2 focus:ring-brand-blue-200"
+        />
+      </div>
+
+      <div>
+        <label for="hqf-service" class="mb-1.5 block text-sm font-semibold">What do you need?</label>
+        <select
+          id="hqf-service"
+          name="service"
+          required
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600 focus:outline-none focus:ring-2 focus:ring-brand-blue-200"
+        >
+          <option value="">— Choose a service —</option>
+          {categoryGroups.map((g) => (
+            <optgroup label={g.label}>
+              {g.options.map((o) => (
+                <option value={o.value}>{o.label}</option>
+              ))}
+            </optgroup>
+          ))}
+          <optgroup label={standaloneGroup.label}>
+            {standaloneGroup.options.map((o) => (
+              <option value={o.value}>{o.label}</option>
+            ))}
+            <option value="other">Something else</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary w-full justify-center">
+        Get a Free Estimate
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+
+      <p class="text-center text-sm text-brand-slate">
+        Or call
+        <a href={`tel:${phoneE164}`} class="font-semibold text-brand-blue-700 hover:text-brand-blue-900">
+          {phone}
+        </a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('hero-quick-form') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const fd = new FormData(form);
+      const params = new URLSearchParams();
+      const name = (fd.get('name') ?? '').toString().trim();
+      const phone = (fd.get('phone') ?? '').toString().trim();
+      const service = (fd.get('service') ?? '').toString().trim();
+      if (name) params.set('name', name);
+      if (phone) params.set('phone', phone);
+      if (service) params.set('service', service);
+      window.location.assign('/book?' + params.toString());
+    });
+  }
+</script>

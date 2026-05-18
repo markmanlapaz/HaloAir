@@ -1,0 +1,76 @@
+---
+// =============================================================================
+// /service-areas — coverage hub
+// =============================================================================
+import { getCollection } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Breadcrumb from '~/components/Breadcrumb.astro';
+import CTABanner from '~/components/CTABanner.astro';
+import config from '~/data/business-config.json';
+
+const allCities = await getCollection('cities');
+const cities = allCities
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((c) => ({ ...c.data, slug: c.id }));
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Service Areas', href: '/service-areas' },
+];
+---
+<BaseLayout
+  title="HVAC Service Areas — Edmonton & Surrounding | Halo Air"
+  description="Halo Air serves Edmonton + Sherwood Park, St. Albert, Spruce Grove, Stony Plain, Leduc, Beaumont, and Fort Saskatchewan. No travel surcharges inside our service area."
+  canonicalPath="/service-areas"
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} class="border-b border-brand-line bg-white" />
+
+  <section class="section pt-12">
+    <div class="container-wide">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="eyebrow">Coverage</span>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+          Serving Edmonton and the metro.
+        </h1>
+        <p class="mt-5 text-lg text-brand-slate">
+          Halo Air covers eight communities across the Edmonton region with the
+          same response promise: no travel surcharges, no call-centre, and the
+          same licensed journeyman crew on every job.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {cities.map((c) => (
+          <a
+            href={`/service-areas/${c.slug}`}
+            class="group relative flex h-full flex-col rounded-3xl border border-brand-line bg-white p-6 shadow-soft transition-all duration-200 hover:-translate-y-1 hover:shadow-glow-blue sm:p-8"
+          >
+            <div class="flex items-start justify-between">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-brand-blue-50 text-brand-blue-700" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              {c.population && (
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-slate">~{Math.round(c.population / 1000)}k people</span>
+              )}
+            </div>
+            <h2 class="mt-5 text-xl font-bold tracking-tight">{c.name}</h2>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-brand-slate">{c.intro}</p>
+            <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-blue-700 transition-transform group-hover:gap-2">
+              See {c.name} details
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Outside our usual service area?"
+    subheading={`Give us a call — ${config.business.phone}. We'll let you know honestly if we can help.`}
+  />
+</BaseLayout>
