@@ -164,6 +164,96 @@ const standaloneGroup = {
       </div>
     </div>
 
+    <!-- Install-only home detail fields. Hidden by default; revealed by the
+         script below when service_type is a furnace/AC installation. All
+         optional — they help with quoting but never block a submission. -->
+    <fieldset
+      id="install-details"
+      class="hidden space-y-5 rounded-2xl border border-brand-line bg-brand-cream/40 p-5"
+      aria-hidden="true"
+    >
+      <legend class="px-2 text-sm font-semibold text-brand-slate">
+        About your home <span class="font-normal">(helps us prep an accurate quote — all optional)</span>
+      </legend>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="home_age" class="mb-1.5 block text-sm font-semibold">Age of home</label>
+          <select
+            id="home_age"
+            name="home_age"
+            class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+          >
+            <option value="">— Select —</option>
+            <option value="under-10">Under 10 years</option>
+            <option value="10-25">10–25 years</option>
+            <option value="25-50">25–50 years</option>
+            <option value="50-plus">50+ years</option>
+            <option value="unsure">Not sure</option>
+          </select>
+        </div>
+        <div>
+          <label for="lot_type" class="mb-1.5 block text-sm font-semibold">Lot type</label>
+          <select
+            id="lot_type"
+            name="lot_type"
+            class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+          >
+            <option value="">— Select —</option>
+            <option value="regular">Regular lot</option>
+            <option value="zero-lot">Zero lot line</option>
+            <option value="unsure">Not sure</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="basement_type" class="mb-1.5 block text-sm font-semibold">Basement</label>
+          <select
+            id="basement_type"
+            name="basement_type"
+            class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+          >
+            <option value="">— Select —</option>
+            <option value="finished">Finished</option>
+            <option value="unfinished">Unfinished</option>
+            <option value="crawlspace">Crawlspace</option>
+            <option value="slab-or-none">Slab / none</option>
+            <option value="unsure">Not sure</option>
+          </select>
+        </div>
+        <div>
+          <label for="legal_suite" class="mb-1.5 block text-sm font-semibold">Legal suite?</label>
+          <select
+            id="legal_suite"
+            name="legal_suite"
+            class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+          >
+            <option value="">— Select —</option>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+            <option value="unsure">Not sure</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="square_footage" class="mb-1.5 block text-sm font-semibold">
+          Approx. square footage <span class="text-brand-slate font-normal">(optional — approx is fine)</span>
+        </label>
+        <input
+          id="square_footage"
+          name="square_footage"
+          type="number"
+          min="300"
+          inputmode="numeric"
+          placeholder="e.g. 1800"
+          class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
+        />
+      </div>
+    </fieldset>
+
     <div class="grid gap-5 sm:grid-cols-2">
       <div>
         <label for="preferred_date" class="mb-1.5 block text-sm font-semibold">
@@ -281,6 +371,27 @@ const standaloneGroup = {
       form.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    // Conditional "About your home" fieldset: shown only for install services.
+    // Clearing values on hide prevents a user who switched away from submitting
+    // stale install data they can no longer see.
+    const INSTALL_SERVICES = new Set(['furnace-installation', 'ac-installation']);
+    const installFieldset = document.getElementById('install-details') as HTMLFieldSetElement | null;
+
+    const syncInstallVisibility = () => {
+      if (!installFieldset || !serviceSelect) return;
+      const show = INSTALL_SERVICES.has(serviceSelect.value);
+      installFieldset.classList.toggle('hidden', !show);
+      installFieldset.setAttribute('aria-hidden', show ? 'false' : 'true');
+      if (!show) {
+        installFieldset.querySelectorAll('select, input').forEach((el) => {
+          (el as HTMLInputElement | HTMLSelectElement).value = '';
+        });
+      }
+    };
+
+    serviceSelect?.addEventListener('change', syncInstallVisibility);
+    syncInstallVisibility();
+
     const setStatus = (msg: string, tone: 'idle' | 'ok' | 'err') => {
       status.textContent = msg;
       status.className = 'text-sm ' + ({
@@ -330,6 +441,9 @@ const standaloneGroup = {
           form.reset();
           // Restore the freshly-reset booking ID so the user sees it confirmed.
           idInput.value = id;
+          // form.reset() clears service_type but doesn't fire `change` —
+          // re-hide the install fieldset manually.
+          syncInstallVisibility();
           setStatus(
             `Got it — we'll be in touch shortly. Reference: ${id}`,
             'ok',
