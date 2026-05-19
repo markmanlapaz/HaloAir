@@ -60,7 +60,7 @@ If you're not sure whether your situation qualifies, **just call or email**. The
 
 ## Why call Halo Air after hours
 
-- **One number, four trades.** No "we don't do gas — call a gasfitter" or "we don't do plumbing — call a plumber." Halo Air holds Red Seal Journeyman tickets across plumbing, gasfitter, refrigeration, and air conditioning.
+- **One number, three trades.** No "we don't do gas — call a gasfitter" or "we don't do plumbing — call a plumber." Halo Air holds Red Seal Journeyman tickets across plumbing, gasfitter, and refrigeration & air conditioning mechanic.
 - **Award-winning technician.** 15 years of HVAC experience and multiple industry awards on the wall.
 - **Straightforward pricing.** Any after-hours fee is disclosed up front. Labour and parts are quoted in writing before work begins.
 - **Trucks stocked for the call.** Common parts are on the truck, not at the warehouse for tomorrow.

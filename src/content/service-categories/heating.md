@@ -31,7 +31,7 @@ The other factor is **maintenance neglect**. A flame sensor coated in soot. A co
 
 ## What "award-winning" actually means here
 
-The owner's tickets — Red Seal Journeyman Plumber, Journeyman Gasfitter, Refrigeration Mechanic, Air Conditioning Mechanic — represent the four trades that touch a furnace install. Most contractors hold one or two and sub out the rest. Halo Air carries all four under one liability policy, one warranty signature, and one phone number when something needs a follow-up call.
+The owner's tickets — Red Seal Journeyman Plumber, Journeyman Gasfitter (B Ticket), and Refrigeration & Air Conditioning Mechanic — represent the three trades that touch a furnace install. Most contractors hold one or two and sub out the rest. Halo Air carries all three under one liability policy, one warranty signature, and one phone number when something needs a follow-up call.
 
 15 years of HVAC industry experience and multiple industry awards back the work. Every install quote is written, every repair quote is given before tools come out of the truck, and every job is warranted in writing.
 

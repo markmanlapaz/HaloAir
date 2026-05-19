@@ -1,9 +1,9 @@
 ---
 // =============================================================================
 // ServiceBadges.astro
-// The "Plumbing • Gasfitter • Refrigeration • Air Conditioning" badge row
-// pulled directly from the client's logo lockup. Used on the homepage hero
-// and the booking page to reinforce the four-trades story.
+// The "Plumbing • Gasfitter • Refrigeration & AC" badge row pulled from the
+// client's three Red Seal Journeyman tickets. Refrigeration and Air
+// Conditioning are a single combined trade ticket, so they share one badge.
 // =============================================================================
 export interface Props {
   on?: 'light' | 'dark';
@@ -25,14 +25,8 @@ const badges = [
     text: on === 'dark' ? 'text-white' : 'text-red-700',
   },
   {
-    label: 'Refrigeration',
+    label: 'Refrigeration & AC',
     icon: 'snowflake',
-    bg: on === 'dark' ? 'bg-brand-blue-600/60' : 'bg-brand-blue-50',
-    text: on === 'dark' ? 'text-white' : 'text-brand-blue-700',
-  },
-  {
-    label: 'Air Conditioning',
-    icon: 'fan',
     bg: on === 'dark' ? 'bg-brand-orange-500/70' : 'bg-brand-orange-50',
     text: on === 'dark' ? 'text-white' : 'text-brand-orange-700',
   },
@@ -54,15 +48,6 @@ const badges = [
       {b.icon === 'snowflake' && (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
-        </svg>
-      )}
-      {b.icon === 'fan' && (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <circle cx="12" cy="12" r="2.5"/>
-          <path d="M12 9.5C12 5 14 2 17 2c2 0 3 2 3 4 0 3-3 5-8 3.5z" opacity="0.85"/>
-          <path d="M14.5 12C19 12 22 14 22 17c0 2-2 3-4 3-3 0-5-3-3.5-8z" opacity="0.85"/>
-          <path d="M12 14.5C12 19 10 22 7 22c-2 0-3-2-3-4 0-3 3-5 8-3.5z" opacity="0.85"/>
-          <path d="M9.5 12C5 12 2 10 2 7c0-2 2-3 4-3 3 0 5 3 3.5 8z" opacity="0.85"/>
         </svg>
       )}
       {b.label}

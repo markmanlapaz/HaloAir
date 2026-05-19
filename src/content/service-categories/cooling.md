@@ -29,8 +29,8 @@ The most common AC failures we see on Halo Air repair calls — in rough order o
 
 The biggest installation mistake we encounter on existing systems is the wrong size — almost always oversized. An oversized AC short-cycles, fails to dehumidify properly, and chews through compressors years early. Every Halo Air install starts with a Manual J cooling load calculation done on-site.
 
-## What customers get from a four-trade crew
+## What customers get from a three-trade crew
 
-A modern AC install often crosses trades: refrigerant work (HVAC ticket), electrical disconnect and 240V circuit (sometimes needs an electrician), condensate drain plumbing (plumbing ticket), and any gas-line interaction with the existing furnace (gasfitter ticket). Halo Air's tickets cover all but the electrical panel work itself — and we coordinate that piece with a partner electrician when it's needed, with the same written quote and same warranty.
+A modern AC install often crosses trades: refrigerant work (Refrigeration & Air Conditioning Mechanic ticket), electrical disconnect and 240V circuit (sometimes needs an electrician), condensate drain plumbing (Plumber ticket), and any gas-line interaction with the existing furnace (Gasfitter B Ticket). Halo Air's tickets cover all but the electrical panel work itself — and we coordinate that piece with a partner electrician when it's needed, with the same written quote and same warranty.
 
 ## Pick the cooling service you need

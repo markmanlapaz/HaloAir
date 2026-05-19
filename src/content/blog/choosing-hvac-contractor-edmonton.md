@@ -7,7 +7,7 @@ publishedAt: "2026-03-18"
 tags: ["buyers-guide", "edmonton", "trust"]
 faq:
   - q: "What licenses should an HVAC contractor have in Alberta?"
-    a: "Look for a Journeyman ticket in the relevant trade (Plumber, Gasfitter B Ticket for gas work, Refrigeration Mechanic for HVAC). Apprentice-level work is allowed under journeyman supervision but a journeyman should be on every install. Halo Air carries Journeyman certification across all four trades that touch HVAC."
+    a: "Look for a Journeyman ticket in the relevant trade (Plumber, Gasfitter B Ticket for gas work, Refrigeration & Air Conditioning Mechanic for HVAC). Apprentice-level work is allowed under journeyman supervision but a journeyman should be on every install. Halo Air carries Red Seal Journeyman certification across all three trades that touch HVAC."
   - q: "Should I always get three quotes?"
     a: "Two or three is the right range. One quote leaves you no comparison. More than three creates decision paralysis and frustrates contractors (most won't return the call). Make sure quotes are itemized so you're comparing apples-to-apples."
   - q: "How much warranty should I get?"
@@ -28,7 +28,7 @@ Spend more time vetting the contractor than vetting the brand.
 
 ### 1. Are you licensed in Alberta?
 
-For HVAC and gas work in Alberta, your contractor needs at minimum a **Journeyman Gasfitter (B Ticket)** for gas work and a **Refrigeration Mechanic** ticket for AC/heat pump work. For full HVAC plus plumbing involvement (water heaters, hydronic), look for a Journeyman Plumber too. Halo Air carries all four.
+For HVAC and gas work in Alberta, your contractor needs at minimum a **Journeyman Gasfitter (B Ticket)** for gas work and a **Refrigeration & Air Conditioning Mechanic** ticket for AC/heat pump work. For full HVAC plus plumbing involvement (water heaters, hydronic), look for a Journeyman Plumber too. Halo Air carries all three.
 
 Ask for a license number. Verify it via Alberta's Workforce Apprenticeship Board if you want to confirm.
 

@@ -306,7 +306,7 @@ const sec1 = [
   divider(),
   body([
     new TextRun({ text: 'Good news: the website is already largely built.', font: 'Arial', bold: true, size: 24, color: INK }),
-    new TextRun({ text: ' We took your brand assets, your phone number, and the four trades you carry, and turned it into a fully working modern website with all the SEO infrastructure baked in from day one.', font: 'Arial', size: 22, color: SLATE }),
+    new TextRun({ text: ' We took your brand assets, your phone number, and the three Red Seal trades you carry, and turned it into a fully working modern website with all the SEO infrastructure baked in from day one.', font: 'Arial', size: 22, color: SLATE }),
   ]),
   body("Here's a snapshot of what's already in place:", { after: 200 }),
 

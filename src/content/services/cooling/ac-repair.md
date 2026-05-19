@@ -7,6 +7,7 @@ h1: "AC repair in Edmonton — diagnosed today, fixed without surprises."
 icon: "snowflake"
 accent: "blue"
 order: 21
+heroImage: "ac-service"
 features:
   - "Same-day service when you call before noon"
   - "Refrigerant-licensed (R-410A and R-32 compatible)"
@@ -54,7 +55,7 @@ If your system is older than 12 years, uses R-22 refrigerant, has had two or mor
 
 - **Live local dispatch.** The number on this page rings a real person in Edmonton, not an offshore call centre.
 - **Written upfront pricing.** No "we'll send you the bill" — you see the number before we lift a tool.
-- **Four trades under one roof.** If the diagnosis turns out to involve plumbing, gas, or refrigeration, we don't sub it out — we're licensed for all four.
+- **Three trades under one roof.** If the diagnosis turns out to involve plumbing, gas, or refrigeration, we don't sub it out — we're licensed for all three.
 - **Warranty backed in writing.** Every repair is documented and warranted. Keep the email; we honour the dates without asking for the original work order.
 
 ## Book your AC repair today

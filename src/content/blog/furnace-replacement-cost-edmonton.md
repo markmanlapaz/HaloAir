@@ -72,6 +72,6 @@ A contractor who hesitates on any of these is showing you what they'd skip on th
 
 ## Get a real Halo Air quote
 
-A Halo Air furnace install quote includes everything listed above as standard, with a real Manual J load calculation done in your home — not estimated over the phone. We carry journeyman tickets in all four trades that touch a furnace install (plumbing, gas, HVAC, electrical when needed), so there's no sub-contractor coordination on our jobs.
+A Halo Air furnace install quote includes everything listed above as standard, with a real Manual J load calculation done in your home — not estimated over the phone. We carry Red Seal Journeyman tickets across the three trades that touch a furnace install — Plumbing, Gasfitter (B Ticket), and Refrigeration & Air Conditioning Mechanic — so there's no sub-contractor coordination on our jobs.
 
 Call **780-224-0024** or [book a free in-home consultation](/book/) and we'll walk you through your options with the real numbers for your home.

@@ -2,7 +2,7 @@
 name: "Edmonton"
 metaTitle: "HVAC, Plumbing & Gas in Edmonton, AB | Halo Air Heating & Cooling"
 metaDesc: "Edmonton's local HVAC + plumbing + gas team. AC repair, furnace installs, water heater service, after-hours service. Licensed Journeyman work across the city. Call 780-224-0024."
-intro: "Halo Air is Edmonton-based, Edmonton-operated, and on the road across every quadrant — Riverbend to Mill Woods, Westmount to Windermere. Same-day dispatch within city limits, journeyman work across four trades, and no travel fees inside the Anthony Henday."
+intro: "Halo Air is Edmonton-based, Edmonton-operated, and on the road across every quadrant — Riverbend to Mill Woods, Westmount to Windermere. Same-day dispatch within city limits, journeyman work across three trades, and no travel fees inside the Anthony Henday."
 permitNote: "Most HVAC equipment swaps in Edmonton require a Building Permit through the City's Development Services office. Furnace replacements that don't change venting are usually flat-fee. New gas-line work above 6 m or new appliance connections require a gas permit too. We pull every permit on your behalf as part of every install quote, and the cost is line-itemed transparently in your written estimate."
 population: 1010899
 neighborhoods:
