@@ -14,11 +14,15 @@ const targets = [
   { fmt: 'png',  w: 600 }, // PNG keeps full alpha; quality knob is N/A
 ];
 
+// The source export has ~400px of transparent padding below the mark and
+// ~200px on each side, which makes the logo float top-left in any flex
+// container. Trim the transparent border first so the rendered bounding
+// box matches the actual artwork.
 for (const t of targets) {
   const out = join(root, 'public', 'images', `logo-horizontal.${t.fmt}`);
-  const pipe = sharp(src).resize({ width: t.w, withoutEnlargement: true });
+  const pipe = sharp(src).trim({ threshold: 5 }).resize({ width: t.w, withoutEnlargement: true });
   if (t.fmt === 'webp') await pipe.webp({ quality: t.quality, alphaQuality: 90 }).toFile(out);
   else                  await pipe.png({ compressionLevel: 9, palette: false }).toFile(out);
-  const { size } = await fs.stat(out);
-  console.log(`logo-horizontal.${t.fmt}: ${(size / 1024).toFixed(1)} KB`);
+  const { size, width, height } = await sharp(out).metadata();
+  console.log(`logo-horizontal.${t.fmt}: ${width}×${height}, ${((await fs.stat(out)).size / 1024).toFixed(1)} KB`);
 }
