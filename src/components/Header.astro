@@ -10,7 +10,6 @@
 // gets its own prominent button at every viewport size.
 // =============================================================================
 import config from '~/data/business-config.json';
-import Logo from '~/components/Logo.astro';
 import { getCollection } from 'astro:content';
 
 const cats = await getCollection('serviceCategories');
@@ -53,11 +52,25 @@ function isActive(href: string) {
   return here === href || here.startsWith(href + '/');
 }
 ---
-<header class="sticky top-0 z-40 border-b border-brand-line bg-brand-cream/85 backdrop-blur-md">
-  <div class="container-wide flex h-16 items-center justify-between sm:h-20">
-    <!-- Logo -->
+<header class="sticky top-0 z-40 border-b border-white/10 bg-brand-ink/95 text-white/85 backdrop-blur-md">
+  <div class="container-wide flex h-20 items-center justify-between sm:h-24">
+    <!-- Logo — horizontal HALO AIR lockup. WebP first for ~25 KB, PNG
+         fallback at ~70 KB. Native aspect ratio is ~1.5:1, so width is
+         set proportional to height via inline style. -->
     <a href="/" class="group flex items-center" aria-label={`${config.business.shortName} home`}>
-      <Logo variant="full" height={52} on="light" class="transition-transform group-hover:-translate-y-0.5" eager={true} />
+      <picture>
+        <source type="image/webp" srcset="/images/logo-horizontal.webp" />
+        <img
+          src="/images/logo-horizontal.png"
+          alt="Halo Air Heating & Cooling"
+          width="600"
+          height="400"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          class="block h-12 w-auto transition-transform group-hover:-translate-y-0.5 sm:h-16"
+        />
+      </picture>
     </a>
 
     <!-- Desktop nav -->
@@ -72,8 +85,8 @@ function isActive(href: string) {
               class:list={[
                 'rounded-full px-4 py-2 text-sm font-medium transition-colors',
                 active
-                  ? 'bg-white text-brand-ink shadow-sm'
-                  : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+                  ? 'bg-white/15 text-white'
+                  : 'text-white/70 hover:bg-white/10 hover:text-white',
               ]}
             >
               {label}
@@ -90,8 +103,8 @@ function isActive(href: string) {
               class:list={[
                 'inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors',
                 active
-                  ? 'bg-white text-brand-ink shadow-sm'
-                  : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+                  ? 'bg-white/15 text-white'
+                  : 'text-white/70 hover:bg-white/10 hover:text-white',
               ]}
             >
               {label}
@@ -148,7 +161,7 @@ function isActive(href: string) {
     <div class="flex items-center gap-2 sm:gap-3">
       <a
         href={`tel:${phoneE164}`}
-        class="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-brand-blue-700 transition-colors hover:bg-brand-blue-50 sm:inline-flex"
+        class="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-brand-blue-300 transition-colors hover:bg-white/10 hover:text-white sm:inline-flex"
         aria-label={`Call ${phone}`}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -163,7 +176,7 @@ function isActive(href: string) {
   </div>
 
   <!-- Mobile nav (visible below lg). Services row expands into category accordion. -->
-  <nav class="border-t border-brand-line bg-white/40 lg:hidden" aria-label="Primary mobile">
+  <nav class="border-t border-white/10 bg-black/30 lg:hidden" aria-label="Primary mobile">
     <div class="container-wide flex justify-between gap-1 overflow-x-auto py-2 text-sm">
       {nav.map(({ href, label, dropdown }) => {
         const active = isActive(href);
@@ -175,8 +188,8 @@ function isActive(href: string) {
               class:list={[
                 'whitespace-nowrap rounded-full px-3 py-1.5 font-medium transition-colors',
                 active
-                  ? 'bg-white text-brand-ink shadow-sm'
-                  : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+                  ? 'bg-white/15 text-white'
+                  : 'text-white/70 hover:bg-white/10 hover:text-white',
               ]}
             >
               {label}
@@ -193,8 +206,8 @@ function isActive(href: string) {
             class:list={[
               'whitespace-nowrap rounded-full px-3 py-1.5 font-medium transition-colors',
               active
-                ? 'bg-white text-brand-ink shadow-sm'
-                : 'text-brand-slate hover:bg-white hover:text-brand-ink',
+                ? 'bg-white/15 text-white'
+                : 'text-white/70 hover:bg-white/10 hover:text-white',
             ]}
           >
             {label}
