@@ -7,6 +7,7 @@ h1: "AC tune-ups — small spring visits that prevent July emergencies."
 icon: "snowflake"
 accent: "blue"
 order: 23
+heroImage: "ac-service"
 features:
   - "18-point spring AC tune-up"
   - "Refrigerant pressure + superheat/subcool verification"

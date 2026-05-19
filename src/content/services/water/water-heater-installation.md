@@ -7,6 +7,7 @@ h1: "Water heater installation — tank, code-compliant, one-crew install."
 icon: "tools"
 accent: "orange"
 order: 32
+heroImage: "water-heater-installation"
 features:
   - "Tank sizing matched to household usage"
   - "Current Alberta code on every install (expansion tank, T&P discharge, seismic strap)"

@@ -7,6 +7,7 @@ h1: "Furnace repair in Edmonton — diagnosed today, fixed without surprises."
 icon: "flame"
 accent: "orange"
 order: 11
+heroImage: "furnace-repair"
 features:
   - "Same-week dispatch on regular calls; priority for no-heat in cold snaps"
   - "Written quote before any work starts — no surprise line items"

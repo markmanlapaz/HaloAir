@@ -7,6 +7,7 @@ h1: "Tankless water heaters — endless hot water, smaller footprint, longer lif
 icon: "tools"
 accent: "blue"
 order: 33
+heroImage: "tankless-water-heater"
 features:
   - "On-demand hot water — no waiting for a tank to recover"
   - "18–22 year lifespan (vs. 10–14 for tanks)"

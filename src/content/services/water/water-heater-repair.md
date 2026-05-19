@@ -7,6 +7,7 @@ h1: "Water heater repair — same-week, often same-day for active leaks."
 icon: "tools"
 accent: "blue"
 order: 31
+heroImage: "tankless-water-heater"
 features:
   - "Priority dispatch on actively leaking units"
   - "Repair on tank, power-vent, and tankless systems"

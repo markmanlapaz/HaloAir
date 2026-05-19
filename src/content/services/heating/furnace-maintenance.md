@@ -7,6 +7,7 @@ h1: "Furnace tune-ups — small fall visits that prevent big winter bills."
 icon: "flame"
 accent: "blue"
 order: 13
+heroImage: "furnace-maintenance"
 features:
   - "23-point fall furnace tune-up"
   - "Combustion analysis with calibrated CO meter"

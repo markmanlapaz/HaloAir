@@ -24,6 +24,12 @@ const services = defineCollection({
     features: z.array(z.string()).default([]),
     faq: z.array(faqItem).default([]),
     order: z.number().default(100),
+    // Optional hero background image. When set, the hero card uses this
+    // photo as a background with the brand gradient overlaid at 50%
+    // opacity. Provide the slug used by optimize-service-heroes.mjs
+    // (e.g. "furnace-repair") — the template fills in /-800.webp,
+    // /-1400.webp, /-800.jpg, /-1400.jpg.
+    heroImage: z.string().optional(),
   }),
 });
 

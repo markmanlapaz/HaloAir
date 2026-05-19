@@ -7,6 +7,7 @@ h1: "AC installation in Edmonton — right-sized, cleanly installed, fully warra
 icon: "snowflake"
 accent: "blue"
 order: 22
+heroImage: "ac-installation"
 features:
   - "Manual J cooling load calculation done in your home"
   - "Refrigerant-licensed (R-410A and R-32) — full federal certification"

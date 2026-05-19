@@ -7,6 +7,7 @@ h1: "Furnace installation in Edmonton — sized right, installed in a day."
 icon: "flame"
 accent: "orange"
 order: 12
+heroImage: "furnace-installation"
 features:
   - "Manual J load calculation done in your home — no rule-of-thumb sizing"
   - "High-efficiency (96%+ AFUE) models from trusted brands"
