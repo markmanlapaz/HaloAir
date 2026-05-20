@@ -92,10 +92,10 @@ const breadcrumbs = [
         </div>
 
         <!-- Hero accent panel — gradient card with category icon -->
-        <div class={`relative aspect-[4/5] rounded-[2rem] p-8 text-white shadow-soft ${cat.accent === 'orange' ? 'bg-gradient-to-br from-brand-orange-600 via-brand-orange-500 to-brand-ink' : 'bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-ink'}`}>
+        <div class={`relative overflow-hidden rounded-[2rem] p-8 text-white shadow-soft sm:aspect-[4/5] ${cat.accent === 'orange' ? 'bg-gradient-to-br from-brand-orange-600 via-brand-orange-500 to-brand-ink' : 'bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-ink'}`}>
           <span aria-hidden="true" class="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-white/15 blur-3xl"></span>
           <span aria-hidden="true" class="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-black/30 blur-3xl"></span>
-          <div class="relative flex h-full flex-col justify-between">
+          <div class="relative flex flex-col gap-8 sm:h-full sm:justify-between sm:gap-0">
             <span class="grid h-16 w-16 place-items-center rounded-2xl bg-white/15 backdrop-blur-sm">
               {cat.icon === 'snowflake' && (
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
