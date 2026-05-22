@@ -48,22 +48,22 @@
         "furnace-repair": {
           "label": "Furnace Repair",
           "slug": "furnace-repair",
-          "duration": 90,
+          "duration": 60,
           "buffer": 30,
           "short": "Same-week diagnosis and repair for residential furnaces — all major brands."
         },
         "furnace-installation": {
           "label": "Furnace Installation",
           "slug": "furnace-installation",
-          "duration": 360,
-          "buffer": 60,
+          "duration": 300,
+          "buffer": 30,
           "short": "High-efficiency furnace replacement, right-sized to your home. Free estimate."
         },
         "furnace-maintenance": {
           "label": "Furnace Maintenance",
           "slug": "furnace-maintenance",
-          "duration": 90,
-          "buffer": 15,
+          "duration": 60,
+          "buffer": 30,
           "short": "Annual fall tune-ups that preserve your warranty and prevent winter breakdowns."
         }
       }
@@ -79,22 +79,22 @@
         "ac-repair": {
           "label": "AC Repair",
           "slug": "ac-repair",
-          "duration": 90,
+          "duration": 60,
           "buffer": 30,
           "short": "Fast diagnosis and repair for residential and light-commercial cooling."
         },
         "ac-installation": {
           "label": "AC Installation",
           "slug": "ac-installation",
-          "duration": 300,
-          "buffer": 60,
+          "duration": 240,
+          "buffer": 30,
           "short": "New central AC installs sized to your home. Free written estimate."
         },
         "ac-maintenance": {
           "label": "AC Maintenance",
           "slug": "ac-maintenance",
           "duration": 60,
-          "buffer": 15,
+          "buffer": 30,
           "short": "Spring tune-ups that catch problems before the first heat wave."
         }
       }
@@ -110,7 +110,7 @@
         "water-heater-repair": {
           "label": "Water Heater Repair",
           "slug": "water-heater-repair",
-          "duration": 90,
+          "duration": 60,
           "buffer": 30,
           "short": "Tank and tankless repairs — leaks, no hot water, lukewarm output, error codes."
         },
@@ -118,15 +118,22 @@
           "label": "Water Heater Installation",
           "slug": "water-heater-installation",
           "duration": 180,
-          "buffer": 60,
+          "buffer": 30,
           "short": "New tank installs sized to your household. Free estimate, gas + venting included."
         },
         "tankless-water-heaters": {
           "label": "Tankless Water Heaters",
           "slug": "tankless-water-heaters",
           "duration": 300,
-          "buffer": 60,
+          "buffer": 30,
           "short": "On-demand hot water — endless supply, longer lifespan, no standby losses."
+        },
+        "tankless-service": {
+          "label": "Tankless Repair & Maintenance",
+          "slug": "tankless-service",
+          "duration": 60,
+          "buffer": 30,
+          "short": "Tankless repair and annual maintenance — descaling, error codes, leaks, and performance tune-ups."
         }
       }
     }
