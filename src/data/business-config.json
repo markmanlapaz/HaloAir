@@ -127,6 +127,13 @@
           "duration": 300,
           "buffer": 30,
           "short": "On-demand hot water — endless supply, longer lifespan, no standby losses."
+        },
+        "tankless-service": {
+          "label": "Tankless Repair & Maintenance",
+          "slug": "tankless-service",
+          "duration": 60,
+          "buffer": 30,
+          "short": "Tankless repair and annual maintenance — descaling, error codes, leaks, and performance tune-ups."
         }
       }
     }
