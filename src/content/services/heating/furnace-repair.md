@@ -15,8 +15,8 @@ features:
   - "Combustion analyzer + calibrated CO meter on every repair"
   - "90-day repair labour warranty in writing"
 faq:
-  - q: "What does a furnace repair typically cost?"
-    a: "Most residential furnace repairs land between $180 and $700 depending on the failed component. A flame sensor cleaning runs ~$180; an igniter replacement is ~$240; a draft inducer motor can hit $650–$850. Heat exchanger or control-board issues sometimes push higher, at which point we'll quote replacement side-by-side so you can compare."
+  - q: "What does a furnace repair typically involve?"
+    a: "It depends on the failed component. The most common repairs are flame sensor cleanings, igniter replacements, capacitor swaps, and pressure-switch fixes — all straightforward, same-visit jobs. Less common are inducer motor or control-board failures, which take longer and cost more. Heat exchanger issues sometimes push into 'replace, don't repair' territory; when that happens we quote both side-by-side so you can compare. Every repair gets a written quote before any work starts."
   - q: "Why does my furnace keep short-cycling?"
     a: "Three common causes: an oversized furnace (no fix short of replacement), a clogged air filter restricting return airflow, or a failing high-limit switch tripping the safety circuit. We diagnose with a static-pressure measurement and combustion analyzer in the same visit, then quote the right fix — not a guess."
   - q: "Is a yellow flame dangerous?"
@@ -37,7 +37,7 @@ Edmonton furnaces fail in surprisingly predictable patterns, and the symptom usu
 - **Furnace starts, then shuts down after a minute** — flame sensor fault or a high-limit safety tripping. Cleaning the sensor takes 20 minutes; tracking down a high-limit trip takes longer (it's usually low airflow from a dirty filter or blocked vent).
 - **Furnace blowing cold air** — gas valve fault, ignition failure, or a thermostat wiring issue. We test each electrically before pulling parts.
 - **Loud bang on startup** — delayed ignition, often caused by dirty burners letting gas accumulate before lighting. Untreated it can crack the heat exchanger; we clean and re-test combustion.
-- **Squealing or grinding** — blower motor bearings or a loose belt (on older units). Repair often beats replacement of a 12-year-old motor for $400–$650.
+- **Squealing or grinding** — blower motor bearings or a loose belt (on older units). Often a same-visit fix.
 - **Furnace runs constantly but the house won't warm** — undersized or duct-leakage issue more often than a furnace fault. We measure static pressure and supply/return temperatures before recommending parts.
 
 ## How a Halo Air furnace repair visit works

@@ -17,8 +17,8 @@ features:
 faq:
   - q: "Is tankless worth the higher install cost?"
     a: "Depends on the household. Tankless wins clearly for: 3+ bathroom homes, big-tub or rain-shower homes, households with simultaneous hot-water demand (two showers + dishwasher), or homeowners planning to stay 10+ years (the longer lifespan pays back). For a 1–2 person household in a smaller home, a standard tank is usually the better lifetime cost."
-  - q: "How much does tankless cost installed?"
-    a: "$4,000–$6,500 installed in an average Edmonton home, depending on whether your existing gas line and venting need upgrading. The gas line is the most common gotcha — tankless units need more BTU/h delivery than a tank, so a 1/2\" line that fed a tank often needs upsizing to 3/4\" for tankless. We measure during the quote so there are no surprises."
+  - q: "What does a tankless install involve?"
+    a: "Pricing depends mostly on whether your existing gas line and venting can be reused. The gas line is the most common gotcha — tankless units need more BTU/h delivery than a tank, so a 1/2\" line that fed a tank often needs upsizing to 3/4\" for tankless. We measure during the quote and write everything out line by line before any work starts. Call 780-224-0024 for an in-home assessment."
   - q: "Will it really give me endless hot water?"
     a: "Yes, within the unit's flow rating. A typical residential tankless rated at 7–10 gallons per minute (GPM) handles two simultaneous showers comfortably. Three simultaneous high-flow fixtures (two showers + a tub fill) can push past the limit. We size based on your peak demand pattern, not just gallons-per-day."
   - q: "Are tankless units harder to maintain?"

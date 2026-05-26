@@ -10,7 +10,7 @@ order: 50
 features:
   - "After-hours service available on request — call or email"
   - "Award-winning technician with 15 years of HVAC experience"
-  - "Same straightforward pricing as daytime calls"
+  - "Same rates as daytime calls — no after-hours surcharge"
   - "Gas-leak certified (Journeyman Gasfitter)"
   - "Most no-heat / no-cool calls resolved in a single visit"
 faq:
@@ -19,7 +19,7 @@ faq:
   - q: "Are after-hours calls really available?"
     a: "Yes. After-hours service is available on request — call or email and we'll work to get to you as soon as we can. Response times depend on the situation; for life-safety issues (gas leak, CO alarm, no heat with infants or elderly residents at deep cold) we prioritize."
   - q: "How does pricing work after hours?"
-    a: "Labour and parts are quoted up front in writing before any work starts — same straightforward approach as a daytime visit. Any after-hours dispatch fee is disclosed on the call before you commit. No surprises on the invoice."
+    a: "Same rates as daytime — no after-hours surcharge. Labour and parts are quoted up front in writing before any work starts. No surprises on the invoice, day or night."
   - q: "What should I do before the technician arrives?"
     a: "Gas leak: leave the building immediately, do NOT use light switches or phones inside, call from outside, then call ATCO at 1-800-511-3447 and 780-224-0024. CO alarm: open windows, leave the building, call 911 if anyone has symptoms. No heat: keep curtains closed, run hot water in a sink to add humidity, gather everyone into one room. No cool in extreme heat: cover south- and west-facing windows, use fans only."
   - q: "Can you handle gas line emergencies?"
@@ -44,7 +44,7 @@ If you're not sure whether your situation qualifies, **just call or email**. The
 1. **Triage.** When you call or email, we ask safety questions first, fault questions second. We tell you what to do to stay safe and give an honest ETA.
 2. **Dispatch.** We come stocked for the reported issue — no-heat calls bring furnace board / igniter / inducer parts; no-cool calls bring capacitor / contactor / refrigerant; gas calls bring the leak detector.
 3. **Arrival.** Marked vehicle, ID visible. We walk you through the diagnosis as we work.
-4. **Written estimate.** You see the quote in writing before any work starts. After-hours fees, if any, are disclosed up front.
+4. **Written estimate.** You see the quote in writing before any work starts — at the same rates as a daytime visit.
 5. **The work.** Most no-heat and no-cool issues are resolved in the same visit. Heavy parts (compressors, full furnace replacements) need order time — we'll help bridge the gap (space heaters, hotel-night reimbursement where applicable) for total-loss situations.
 6. **Sign-off.** Test under load, document the work, leave the parts box, file the warranty entry, send the invoice by email.
 
@@ -62,7 +62,7 @@ If you're not sure whether your situation qualifies, **just call or email**. The
 
 - **One number, three trades.** No "we don't do gas — call a gasfitter" or "we don't do plumbing — call a plumber." Halo Air holds Red Seal Journeyman tickets across plumbing, gasfitter, and refrigeration & air conditioning mechanic.
 - **Award-winning technician.** 15 years of HVAC experience and multiple industry awards on the wall.
-- **Straightforward pricing.** Any after-hours fee is disclosed up front. Labour and parts are quoted in writing before work begins.
+- **Same rates, day or night.** No after-hours surcharge. Labour and parts are quoted in writing before work begins.
 - **Trucks stocked for the call.** Common parts are on the truck, not at the warehouse for tomorrow.
 
 ## Call now — 780-224-0024

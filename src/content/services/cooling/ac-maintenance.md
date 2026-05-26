@@ -16,7 +16,7 @@ features:
   - "Warranty-preserving service log filed for every visit"
 faq:
   - q: "Do I really need to service my AC every year?"
-    a: "Yes — for two reasons. First, dirty condenser coils alone can drop AC efficiency 20% (your hydro bill notices). Second, most AC manufacturer warranties require documented annual service. Skip it, and a $1,500 compressor failure in year 8 isn't covered. A spring tune-up is the cheapest insurance you can buy."
+    a: "Yes — for two reasons. First, dirty condenser coils alone can drop AC efficiency 20% (your hydro bill notices). Second, most AC manufacturer warranties require documented annual service. Skip it, and a compressor failure in year 8 likely isn't covered. A spring tune-up is the cheapest insurance you can buy."
   - q: "When's the best time to book?"
     a: "April or early May — before the first warm stretch loads the schedule. By mid-June we're booked 2–3 weeks out. We do AC service into July and August, but the system's already running hard by then; finding issues before the season starts is the point."
   - q: "What's included?"
@@ -24,12 +24,12 @@ faq:
   - q: "How much does a tune-up cost?"
     a: "Call us for a current quote — pricing depends on the equipment and condition. We give a written estimate before any work begins. (Bundled monthly/yearly maintenance plans are coming — we'll add details once they launch.)"
   - q: "Will you top up refrigerant during a tune-up?"
-    a: "Only if it's needed AND we've located the leak. Topping up without finding the leak is a bandaid — the refrigerant we add will be gone in weeks or months, and you've paid for it once with no fix. We measure pressures, calculate superheat/subcool, and inspect flare fittings; if pressure's low we recommend a leak hunt as the next step, not a top-up."
+    a: "Only after we've located and repaired the leak. Under Canadian federal regulations (Ozone-depleting Substances and Halocarbon Alternatives Regulations) a refrigerant top-up isn't legal as a standalone fix — the leak has to be found and repaired first, then the system can be properly recharged. It's also the right call technically: a top-up without the repair just leaks back out within weeks. We measure pressures, calculate superheat/subcool, inspect flare fittings, and if pressure's low we recommend a leak hunt as the next step."
 ---
 
 ## Why annual AC maintenance pays for itself
 
-A dirty AC coil drops efficiency 15–25%. A weak capacitor lets a compressor draw more current than it should — once per cycle, every time, for months — until the compressor windings fail. A blocked condensate drain floods a basement on the first humid week of July. Each of these is caught in a 60-minute spring tune-up; each costs $1,000+ to repair as an emergency call.
+A dirty AC coil drops efficiency 15–25%. A weak capacitor lets a compressor draw more current than it should — once per cycle, every time, for months — until the compressor windings fail. A blocked condensate drain floods a basement on the first humid week of July. Each of these is caught in a 60-minute spring tune-up; each costs significantly more to repair as an emergency call.
 
 The other half of the case is **warranty preservation**. Most AC manufacturers require documented annual service to honour their 10-year parts warranty. If your compressor fails in year 8 and there's no service log, you're paying out of pocket.
 

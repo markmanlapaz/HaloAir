@@ -9,7 +9,7 @@ accent: "blue"
 intro: "A water heater fails in one of three ways: a part dies (cheap fix), the tank itself starts leaking (replacement time), or you decide to skip the cycle and go tankless. Halo Air covers all three. The owner carries both a Red Seal Journeyman Plumber ticket and a Journeyman Gasfitter ticket — which means the plumbing connections, the gas line, and the venting are all handled by the same crew on the same visit. No coordinating a plumber and a gasfitter, no markup on sub-contracted work."
 faq:
   - q: "How long should a water heater last?"
-    a: "Standard gas tanks: 8–12 years. Power-vent tanks: 10–14. Tankless units: 18–22 years. Lifespan depends a lot on water hardness (Edmonton's is moderate) and whether the anode rod gets replaced once during the unit's life — a $250 visit that adds 3–5 years for free."
+    a: "Standard gas tanks: 8–12 years. Power-vent tanks: 10–14. Tankless units: 18–22 years. Lifespan depends a lot on water hardness (Edmonton's is moderate) and whether the anode rod gets replaced once during the unit's life — a short, inexpensive visit that adds 3–5 years to the tank."
   - q: "Tank or tankless — which makes more sense?"
     a: "For most Edmonton homes, a high-efficiency tank is the practical pick — cheaper to install, simpler to service. Tankless wins for high-demand homes (3+ bathrooms, big tubs, simultaneous showers), homeowners planning to stay 10+ years (longer lifespan pays back), or anyone tight on mechanical-room space. We'll model both for your situation on every quote."
   - q: "How fast can you get to a leaking water heater?"
@@ -29,10 +29,10 @@ Most water-heater quotes leave out half the actual job. A proper install quote i
 
 Halo Air installs include all of it, in writing, before any work starts.
 
-## When a $250 visit saves $2,500
+## When a quick anode swap saves a whole tank
 
 The single highest-ROI water-heater maintenance task in Alberta is the **anode rod swap** around year 5–6 of a tank's life. The anode is a sacrificial magnesium or aluminum rod that corrodes in place of the steel tank itself. Once it's gone (and most homeowners never even check), the tank starts corroding from the inside, and you've shortened the unit's life by 3–5 years. Most tank failures we see in homes built before 2018 trace back to a never-replaced anode.
 
-If your tank is 5+ years old and you've never had the anode checked, ask about it on your next service call. It's a 30-minute job most of the time, and the rod itself runs about $80 in parts.
+If your tank is 5+ years old and you've never had the anode checked, ask about it on your next service call. It's a 30-minute job most of the time and one of the cheapest interventions on any HVAC equipment in your home.
 
 ## Pick the water-heater service you need

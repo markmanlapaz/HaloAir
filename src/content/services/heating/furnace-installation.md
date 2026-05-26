@@ -16,7 +16,7 @@ features:
   - "10-year manufacturer warranty + 2-year labour warranty"
 faq:
   - q: "How much does a new furnace cost in Edmonton?"
-    a: "A high-efficiency mid-tier furnace install in an average Edmonton home runs $5,500–$8,500 fully installed (equipment, labour, permits, removal of old unit). Premium two-stage and modulating units run $8,500–$12,000. Combined furnace + AC swaps run $9,500–$14,000 (much cheaper than two separate installs)."
+    a: "Pricing depends on tier (96% AFUE single-stage, two-stage, or modulating), home size, venting condition, ductwork, and whether you're combining it with an AC or water heater swap. Every Halo Air quote is written, itemized, and includes equipment, labour, permits, and removal of the old unit before any work starts. Call 780-224-0024 for a free in-home quote."
   - q: "How long does the install take?"
     a: "Most straightforward replacement installs are completed in 6–8 hours — one day, in by 9am, out by 5pm. Installs that involve venting changes, ductwork modifications, or significant gas-line work can stretch to 1.5–2 days. We give you a firm timeline before the install date so you know what to expect."
   - q: "Which furnace brand is best for Alberta winters?"
@@ -36,26 +36,28 @@ Edmonton furnaces typically run 15–20 years before they earn replacement. Some
 - **Age over 15 years** with rising repair costs — combined repair + utility costs usually beat replacement past the 18-year mark.
 - **Pilot light keeps going out** or the burner is yellow instead of blue — combustion is unstable, which can mean a cracked heat exchanger (a safety issue, not a repair-and-hope situation).
 - **Some rooms stay cold no matter what** — could be ductwork, but often points to an undersized or failing furnace struggling to keep up.
-- **Utility bills creeping up year over year** with no other changes — efficiency degradation is real. A modern 96% AFUE furnace can shave 25–40% off a 1990s 80% AFUE system's gas bill.
+- **Utility bills creeping up year over year** with no other changes — efficiency degradation is real. A modern 96% AFUE furnace can shave 25–40% off an older 80% AFUE system's gas bill (and Canada now requires 95%+ AFUE on new installs, so an upgrade is a meaningful jump).
 - **CO detector tripping** — stop using the furnace immediately and call us. This is non-negotiable.
 
 ## How we size a new furnace
 
 Sizing is the single biggest predictor of how a furnace will perform over its life — and it's the step most installers skip. We do a **Manual J load calculation** that accounts for your home's square footage, insulation, window count, ceiling height, basement type, and Edmonton's climate design temperature (−32°C). The output is a specific BTU/h heating load. We then pick a furnace whose output matches it — not 20% over, not 20% under.
 
-## 2026 Edmonton pricing by tier
+## 2026 Edmonton furnace tiers
 
-**Mid tier: 96% AFUE single-stage — $5,500–$8,500**
-The sweet spot for most Edmonton homes. Modern condensing furnace, full Energy Star certification, 10-year manufacturer warranty. Pays back the cost difference vs. entry tier within 4–5 years.
+Canada now requires new residential gas furnaces to be at least 95% AFUE with a multi-stage (ECM) blower, so every quote we write is for a modern high-efficiency unit. Every quote is written and itemized before any work starts — call **780-224-0024** for current pricing on your home.
 
-**Mid-premium tier: 96% AFUE two-stage — $8,500–$10,500**
+**Mid tier: 96% AFUE single-stage**
+The sweet spot for most Edmonton homes. Modern condensing furnace with multi-stage ECM blower, full Energy Star certification, 10-year manufacturer warranty.
+
+**Mid-premium tier: 96% AFUE two-stage**
 Two heat output stages — runs at low fire most of the time and high fire only when needed. Quieter, more even temperatures, slightly better efficiency. Worth it in homes with comfort issues (rooms that run hot/cold).
 
-**Premium tier: 96%+ AFUE modulating + ECM blower — $10,500–$12,000**
+**Premium tier: 96%+ AFUE modulating + ECM blower**
 Variable-output furnace with a precision blower. Best comfort, lowest noise, highest efficiency. Worth it in higher-end homes or where the homeowner values comfort precision.
 
-**Combo: furnace + matched AC — $9,500–$14,000**
-Replacing both at once shares labour, permits, and electrical work, so the combined price is meaningfully less than the two installs done separately.
+**Combo: furnace + matched AC**
+Replacing both at once shares labour, permits, and electrical work, so the combined quote is meaningfully less than the two installs done separately.
 
 ## What's included in a Halo Air furnace install
 

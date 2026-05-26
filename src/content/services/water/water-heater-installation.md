@@ -16,7 +16,7 @@ features:
   - "Most installs completed in a single visit"
 faq:
   - q: "How much does a new water heater cost installed?"
-    a: "A standard 50-gallon natural-gas tank installed in an average Edmonton home runs roughly $1,800–$2,800 depending on venting, code upgrades, and removal of the old unit. High-efficiency power-vent tanks run $2,400–$3,400. Tankless (on-demand) units run $4,000–$6,500 installed — see the [tankless page](/services/water/tankless-water-heaters/) for that breakdown."
+    a: "Pricing depends on tank size, vent type (atmospheric, power-vent, or tankless), code upgrades like expansion tanks, and whether any gas-line or venting changes are needed. Every quote is written and itemized — equipment, labour, gas work, venting, code upgrades, and removal of the old unit all spelled out. Call 780-224-0024 for a free in-home quote, and see the [tankless page](/services/water/tankless-water-heaters/) for on-demand systems."
   - q: "How long do tank water heaters last?"
     a: "Standard atmospheric-vent gas tanks: 8–12 years. Power-vent tanks: 10–14 years. Lifespan depends a lot on water hardness (Edmonton's is moderate) and whether the anode rod gets replaced once during the unit's life. Tanks installed before 2018 in Alberta often skipped the expansion tank, which shortens life — we add one on every new install (current code)."
   - q: "What size tank do I need?"

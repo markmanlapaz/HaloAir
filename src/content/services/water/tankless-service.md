@@ -26,7 +26,7 @@ faq:
   - q: "Do you service tankless units we didn't install?"
     a: "Yes. We service every major tankless brand regardless of who installed it. If the original install had issues — undersized gas line, incorrect venting, missing condensate neutralizer — we'll flag them in writing so you can decide whether to fix now or monitor."
   - q: "What does it cost?"
-    a: "Annual maintenance is a flat hour rate plus descale supplies. Repair visits start with a diagnostic fee that's applied to the repair if you proceed. We quote the repair in writing before doing any work — no surprises, no upsells you didn't ask for."
+    a: "Annual maintenance is a flat hourly rate plus descale supplies. Repair visits start with a diagnostic that's applied to the repair if you proceed. We quote everything in writing before doing any work — no surprises, no upsells you didn't ask for. Call 780-224-0024 for current rates."
 ---
 
 ## Why tankless maintenance actually matters
@@ -35,7 +35,7 @@ Tankless units are built to run for 18–22 years — but that lifespan assumes 
 
 1. **Year 1–2 of skipped maintenance:** scale builds inside the heat exchanger. Flow rate drops a little. You probably don't notice.
 2. **Year 3–4:** the unit works harder to hit setpoint. Gas consumption creeps up. Error codes start appearing — usually flame or flow related.
-3. **Year 5+:** the heat exchanger fails. That's a $1,500–$2,500 part on most brands. Manufacturer denies the warranty claim because there's no maintenance record.
+3. **Year 5+:** the heat exchanger fails. That's an expensive part on most brands — and the manufacturer denies the warranty claim because there's no maintenance record.
 
 A 60-minute annual descale prevents all of that. It's the single highest-ROI maintenance call on any HVAC equipment in your home.
 

@@ -27,7 +27,7 @@ Halo Air's heating work splits into three jobs: the call when something breaks, 
 
 The biggest single factor in Alberta furnace lifespan isn't brand — it's **sizing**. Over half the systems we replace were oversized by 20–40% from the original install, which forces short-cycling (on for a few minutes, off, on, off). Short-cycling burns through inducer motors, ignitors, and control boards on a 10-year clock instead of the 18–22 they're rated for. Every Halo Air install starts with a Manual J load calculation done on-site — your home's actual square footage, insulation, window count, ceiling height, and Edmonton's −32°C design temperature — not a rule-of-thumb estimate over the phone.
 
-The other factor is **maintenance neglect**. A flame sensor coated in soot. A condensate drain blocked with biofilm. A high-limit switch that's been tripping silently. Each is a $20–$40 fix during a tune-up and a $600–$1,400 emergency repair if it's left alone until the system fails on the coldest weekend of the year.
+The other factor is **maintenance neglect**. A flame sensor coated in soot. A condensate drain blocked with biofilm. A high-limit switch that's been tripping silently. Each is a small, routine fix during a tune-up — and a major emergency repair if left alone until the system fails on the coldest weekend of the year.
 
 ## What "award-winning" actually means here
 

@@ -15,8 +15,8 @@ features:
   - "All major brands serviced — Lennox, Trane, Carrier, Goodman, York, Daikin, Mitsubishi"
   - "90-day repair labour warranty in writing"
 faq:
-  - q: "How much does AC repair cost in Edmonton?"
-    a: "Most residential AC repairs fall between $150 and $650 depending on the failed component. A blown capacitor runs ~$180 installed; a contactor replacement is ~$220; a compressor replacement on an older unit can exceed $1,800, at which point we'd give you a side-by-side cost comparison against full replacement. Every Halo Air quote is written and given before we start work — no surprises."
+  - q: "What does an AC repair typically involve?"
+    a: "It depends on the failed component. Most calls are routine — blown capacitors, failed contactors, dirty condenser coils, refrigerant leaks at flare fittings — all straightforward, same-visit repairs. Major work like compressor replacement on an older unit gets quoted side-by-side against full replacement so you can compare. Every Halo Air quote is written and given before we start work — no surprises."
   - q: "How fast can you respond to a no-cool call?"
     a: "If you call before noon on a weekday, we'll usually be on-site that same afternoon. For verified emergencies (medical equipment, vulnerable household members, indoor temps above 30°C), we prioritize and after-hours service is available on request — call or email and we'll work to get to you as soon as possible."
   - q: "Should I repair or replace my AC?"
@@ -29,11 +29,11 @@ faq:
 
 ## What we fix on AC repair calls
 
-Edmonton summers swing from cool to 30°C+ in a few days, and that stress is what breaks air conditioners. The most common failures we see — in rough order of frequency — are blown capacitors, dirty condenser coils, refrigerant leaks at flare fittings, failed contactors, and frozen evaporator coils caused by low airflow. Each has a different fix and a different price, and we'll always show you which one yours is before we start.
+Edmonton summers swing from cool to 30°C+ in a few days, and that stress is what breaks air conditioners. The most common failures we see — in rough order of frequency — are blown capacitors, dirty condenser coils, refrigerant leaks at flare fittings, failed contactors, and frozen evaporator coils caused by low airflow. Each has a different fix, and we'll always show you which one yours is before we start.
 
 ### Symptom-to-cause cheat sheet
 
-- **AC is running but the air isn't cold** — usually low refrigerant (which means there's a leak somewhere), or a dirty condenser coil. Topping up refrigerant without finding the leak just delays the next failure by a few weeks.
+- **AC is running but the air isn't cold** — usually low refrigerant (which means there's a leak somewhere), or a dirty condenser coil. Under Canadian regulations refrigerant top-ups can only be done after the leak has been located and repaired — topping up without the fix is both non-compliant and a waste of money, since the new refrigerant leaks back out within weeks.
 - **AC won't start at all** — most often a blown capacitor, sometimes a failed contactor, occasionally a tripped high-pressure switch or a control board fault.
 - **AC starts then trips the breaker** — compressor electrical fault, hard-start issue, or oversized refrigerant charge.
 - **AC runs constantly but the house isn't cooling** — undersized system, blocked return-air path, leaking ductwork, or a thermostat calibration issue.
@@ -49,7 +49,7 @@ Edmonton summers swing from cool to 30°C+ in a few days, and that stress is wha
 
 ## When repair stops making sense
 
-If your system is older than 12 years, uses R-22 refrigerant, has had two or more major repairs in the last 24 months, or is undersized for the home — we'll tell you honestly that replacement is the better lifetime decision. We can quote a [new AC install](/services/cooling/ac-installation/) the same week, often paired with a [furnace replacement](/services/heating/furnace-installation/) for combined-system pricing.
+If your system is older than 12 years, uses R-22 refrigerant, has had two or more major repairs in the last 24 months, or is undersized for the home — we'll tell you honestly that replacement is the better lifetime decision. We can quote a [new AC install](/services/cooling/ac-installation/) the same week, often paired with a [furnace replacement](/services/heating/furnace-installation/) for combined-system value.
 
 ## What Halo Air customers get that big-box HVAC doesn't
 

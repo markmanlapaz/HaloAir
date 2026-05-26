@@ -10,8 +10,8 @@ faq:
     a: "Once a year, ideally in September before the heating season starts. Most manufacturer warranties require documented annual service — skipping it can void coverage if a major component fails."
   - q: "Can I do furnace maintenance myself?"
     a: "Partially. Filter changes, supply/return vent cleaning, and thermostat checks are all DIY. Combustion testing, heat exchanger inspection, gas pressure verification, and electrical testing require a licensed technician with calibrated equipment."
-  - q: "What's a fair price for a furnace tune-up in Edmonton?"
-    a: "A standard 23-point furnace tune-up in 2026 runs $150–$200 + GST. Halo Air's is $169 + GST as a one-off, or bundled into our HaloCare Plus plan at $279/year that includes both fall furnace and spring AC visits."
+  - q: "What does a furnace tune-up include?"
+    a: "Halo Air's annual furnace service is a 23-point tune-up covering combustion and safety, electrical and controls, airflow and comfort, and condensate drains — plus a written condition report, photo documentation, and warranty service log. The full checklist is below. We also offer it as a one-off visit or bundled into our HaloCare Plus plan that covers both fall furnace and spring AC."
 ---
 
 ## TL;DR
@@ -93,21 +93,21 @@ Book in early-to-mid September and:
 
 ## Why annual service preserves warranties
 
-Almost every major furnace manufacturer (Lennox, Trane, Carrier, Goodman, Napoleon) requires documented annual professional service to honour their 10-year parts warranty. If you skip years and a major component fails in year 8, the manufacturer can decline coverage — sticking you with a $1,500+ repair bill that should have been free.
+Almost every major furnace manufacturer (Lennox, Trane, Carrier, Goodman, Napoleon) requires documented annual professional service to honour their 10-year parts warranty. If you skip years and a major component fails in year 8, the manufacturer can decline coverage — and a repair bill that should have been free comes out of your pocket.
 
-A $169 annual tune-up is cheap insurance against that.
+An annual tune-up is cheap insurance against that.
 
 ## Halo Air's HaloCare maintenance plans
 
 We offer three options:
 
-| Plan | Cost | Includes |
-|------|------|----------|
-| Single tune-up | $169 + GST | One visit, fall furnace OR spring AC |
-| **HaloCare Plus** *(most popular)* | $279/year | Fall furnace + spring AC, priority emergency dispatch, 15% repair discount |
-| HaloCare Business | Quoted | Multi-unit light-commercial, custom schedule |
+| Plan | Includes |
+|------|----------|
+| Single tune-up | One visit, fall furnace OR spring AC |
+| **HaloCare Plus** *(most popular)* | Fall furnace + spring AC, priority emergency dispatch, repair discount |
+| HaloCare Business | Multi-unit light-commercial, custom schedule |
 
-All plans include the written report, photo documentation, and warranty service log.
+All plans include the written report, photo documentation, and warranty service log. Call **780-224-0024** for current plan pricing.
 
 ## Book a tune-up
 

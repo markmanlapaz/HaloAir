@@ -24,14 +24,14 @@ faq:
   - q: "Do you service equipment I didn't install?"
     a: "Yes. We service every brand of residential furnace regardless of who installed it. A maintenance visit is a great way to baseline what you've got and identify anything that needs attention before the next failure."
   - q: "Will maintenance really make a difference?"
-    a: "Yes — and the data backs it up. A dirty burner can drop combustion efficiency 8–15%. A weak inducer motor can fail mid-winter for $650+. A blocked condensate drain can flood a basement. Annual maintenance catches all of these in 90 minutes, and the service log keeps your warranty valid."
+    a: "Yes — and the data backs it up. A dirty burner can drop combustion efficiency 8–15%. A weak inducer motor can fail mid-winter. A blocked condensate drain can flood a basement. Annual maintenance catches all of these in 90 minutes, and the service log keeps your warranty valid."
 ---
 
 ## Why annual furnace maintenance pays for itself
 
 Most furnace failures are not random. A capacitor that fails in November was usually weak in September. A heat exchanger that cracks in January was usually showing soot patterns in October. A condensate drain that floods in February was usually showing biofilm in May. The point of an annual tune-up isn't to "look at the furnace" — it's to **catch developing problems while they're still cheap to fix**.
 
-The other half of the case for maintenance is **warranty preservation**. Almost every major HVAC manufacturer requires documented annual service to honour their 10-year parts warranty. If your inducer motor fails in year 8 and you don't have a service record, you're paying out of pocket — often $1,500+. An annual visit is cheap insurance against that.
+The other half of the case for maintenance is **warranty preservation**. Almost every major HVAC manufacturer requires documented annual service to honour their 10-year parts warranty. If your inducer motor fails in year 8 and you don't have a service record, you're paying out of pocket. An annual visit is cheap insurance against that.
 
 ## What our fall furnace tune-up covers (23 points)
 

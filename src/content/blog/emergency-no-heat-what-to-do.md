@@ -94,7 +94,7 @@ If you have infants, elderly residents, or anyone with medical conditions in the
 3. **Honest ETA.** We tell you a real number — not "we'll get to you when we can."
 4. **Truck dispatched** with parts stocked for the reported issue.
 5. **Diagnosis.** Most no-heat issues are fixed in the same visit (common parts on the truck: ignitors, capacitors, flame sensors, control boards, gas valves).
-6. **Same upfront pricing as daytime.** A $145 after-hours dispatch fee is the only premium. Repair labour and parts are daytime rates.
+6. **Same upfront pricing as daytime.** Labour and parts are the same rates day or night — no after-hours surcharge.
 
 ## Save the number
 

@@ -32,7 +32,7 @@ Open the panel (carefully) and look at the burner flame. A healthy gas flame is 
 
 ### 4. Frequent short-cycling
 
-If your furnace runs for 2–5 minutes, shuts off, runs again 10 minutes later, shuts off — that's short-cycling, and it's bad. Common causes: oversized furnace (was wrong from day one), failing flame sensor, dirty filter restricting airflow, faulty high-limit switch, or a cracked heat exchanger. Some are cheap fixes ($150). Some are end-of-life ($$$).
+If your furnace runs for 2–5 minutes, shuts off, runs again 10 minutes later, shuts off — that's short-cycling, and it's bad. Common causes: oversized furnace (was wrong from day one), failing flame sensor, dirty filter restricting airflow, faulty high-limit switch, or a cracked heat exchanger. Some are cheap fixes. Some are end-of-life.
 
 ### 5. Uneven heat between rooms
 
@@ -42,7 +42,7 @@ If certain rooms have always run cold, that's a ductwork or design issue. But if
 
 A healthy furnace makes a steady whoosh when running and clicks at startup/shutdown. Sounds you should NOT hear:
 - **Booming** at startup — delayed ignition, often a dirty burner. Repair cost low; safety risk medium.
-- **Grinding** — failed blower motor bearings. Replace the motor (~$500–$900).
+- **Grinding** — failed blower motor bearings. Usually a motor replacement.
 - **Squealing** — failed blower belt (on older units) or bad motor bearings.
 - **Banging in the ductwork** — duct expansion/contraction. Usually a fix, not a furnace issue.
 - **Constant clicking** — failed ignitor or flame sensor. Common, cheap fix.

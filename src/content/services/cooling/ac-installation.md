@@ -16,7 +16,7 @@ features:
   - "10-year manufacturer warranty + 2-year labour warranty"
 faq:
   - q: "How much does a new central AC cost installed?"
-    a: "A standard residential central AC (matched to an existing furnace) typically runs $4,500–$7,500 installed in 2026 — equipment, refrigerant, line set, electrical disconnect, pad, condensate drain, and permits. Higher-SEER variable-speed units run $7,500–$10,500. Combined with a new furnace, the total is $9,500–$14,000 (meaningfully less than the two jobs done separately)."
+    a: "Pricing depends on SEER tier (standard single-stage, two-stage, or variable-speed), ductwork readiness, electrical disconnect, refrigerant line set length, and whether it's being installed alongside a new furnace. Every quote is written and itemized — equipment, refrigerant, line set, electrical, pad, condensate drain, and permits all spelled out. Call 780-224-0024 for a free in-home quote."
   - q: "Will my existing ductwork handle a new AC?"
     a: "Usually yes — most Edmonton furnace duct systems are sized to carry both. We measure static pressure during the quote visit; if there's a real problem (badly undersized returns, leaky trunk line, blocked transitions) we'll flag it before you commit and quote the fix separately so you can decide."
   - q: "How long does an install take?"
@@ -37,7 +37,7 @@ If you're reading this page because your existing AC died and you're weighing op
 - **R-22 refrigerant** → replacement, almost always (R-22 is phased out, refilling cost is punitive)
 - **Repair quote exceeds 30% of replacement cost** → replacement
 - **Two or more major repairs in 24 months** → replacement
-- **Under 8 years old, repair under $400** → repair
+- **Under 8 years old, minor repair** → repair
 
 If you're installing AC for the first time in a home that doesn't have it, this page is for you regardless of age.
 
@@ -47,18 +47,20 @@ Cooling load isn't heating load reversed. Edmonton's cooling load is driven by w
 
 Oversized AC is worse than undersized AC. An oversized unit short-cycles, fails to dehumidify properly (the run time isn't long enough to pull moisture out of the air), and chews through compressors years early. The result is a house that feels clammy at 22°C and an electrical bill higher than it should be.
 
-## 2026 Edmonton pricing by tier
+## 2026 Edmonton AC tiers
 
-**Standard single-stage AC (matched to existing furnace) — $4,500–$6,500**
+Every quote is written and itemized before any work starts — call **780-224-0024** for current pricing on your home.
+
+**Standard single-stage AC (matched to existing furnace)**
 13–14 SEER, single-speed compressor, single-stage operation. The straightforward retrofit for most existing-furnace homes.
 
-**Mid-tier two-stage AC — $6,500–$8,500**
+**Mid-tier two-stage AC**
 16–17 SEER, two-speed compressor (low for most of the run, high on hot days). Quieter, better dehumidification, ~15% lower run costs.
 
-**Premium variable-speed AC — $8,500–$10,500**
+**Premium variable-speed AC**
 18–22 SEER, inverter-driven compressor. Best comfort, best efficiency, quietest operation. Worth it in higher-end homes or where you spend serious cooling-season hours indoors.
 
-**Combo: furnace + matched AC — $9,500–$14,000**
+**Combo: furnace + matched AC**
 Shares labour, permits, and electrical work. The best value play if you'd be due for a furnace replacement in the next 2–3 years anyway.
 
 ## What's included in a Halo Air AC install
