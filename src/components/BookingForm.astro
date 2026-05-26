@@ -144,16 +144,16 @@ const standaloneGroup = {
             {standaloneGroup.options.map((o) => (
               <option value={o.value}>{o.label}</option>
             ))}
+            <option value="inquiry">General inquiry</option>
             <option value="other">Something else</option>
           </optgroup>
         </select>
       </div>
-      <div>
-        <label for="urgency" class="mb-1.5 block text-sm font-semibold">Urgency *</label>
+      <div id="urgency-wrap">
+        <label for="urgency" class="mb-1.5 block text-sm font-semibold">Urgency</label>
         <select
           id="urgency"
           name="urgency"
-          required
           class="w-full rounded-2xl border border-brand-line bg-white px-4 py-3 text-base shadow-sm focus:border-brand-blue-600"
         >
           <option value="">— How urgent? —</option>
@@ -392,6 +392,18 @@ const standaloneGroup = {
     serviceSelect?.addEventListener('change', syncInstallVisibility);
     syncInstallVisibility();
 
+    // Hide urgency for general inquiries — they're not booking a service window.
+    const urgencyWrap = document.getElementById('urgency-wrap');
+    const urgencySelect = document.getElementById('urgency') as HTMLSelectElement | null;
+    const syncUrgencyVisibility = () => {
+      if (!urgencyWrap || !urgencySelect || !serviceSelect) return;
+      const hide = serviceSelect.value === 'inquiry';
+      urgencyWrap.classList.toggle('hidden', hide);
+      if (hide) urgencySelect.value = '';
+    };
+    serviceSelect?.addEventListener('change', syncUrgencyVisibility);
+    syncUrgencyVisibility();
+
     const setStatus = (msg: string, tone: 'idle' | 'ok' | 'err') => {
       status.textContent = msg;
       status.className = 'text-sm ' + ({
@@ -444,6 +456,7 @@ const standaloneGroup = {
           // form.reset() clears service_type but doesn't fire `change` —
           // re-hide the install fieldset manually.
           syncInstallVisibility();
+          syncUrgencyVisibility();
           setStatus(
             `Got it — we'll be in touch shortly. Reference: ${id}`,
             'ok',
