@@ -2,14 +2,17 @@
 // =============================================================================
 // BookingForm.astro
 //
-// PHASE 1: posts to Web3Forms — they email the client with the booking payload.
-// PHASE 2: change `BOOKING_ENDPOINT` to your Node API URL. Field names are
-//          already shaped for the AI dispatcher (urgency, time-window, service
-//          type, address) so no field renaming is required.
+// PHASE 2: posts directly to the AI dispatcher's /api/book endpoint.
+// The dispatcher validates with Zod, runs Claude triage, checks Google Calendar
+// availability, and emails the owner with one-tap approval buttons.
 //
-// This file is intentionally self-contained. Phase 2 should ONLY touch:
-//   1. The BOOKING_ENDPOINT constant below
-//   2. (Optionally) remove the hidden Web3Forms `access_key` input
+// The BOOKING_ENDPOINT constant below is the single environment-dependent value:
+//   - local dev:  http://localhost:3000/api/book
+//   - production: https://<railway-app-url>/api/book
+//
+// Customer-facing fallback when the dispatcher is unreachable: the catch block
+// in the submit handler shows the owner's phone number so customers can call
+// directly.
 //
 // No localStorage / sessionStorage anywhere — booking ID lives in component
 // state via a hidden input, generated client-side at form mount.
@@ -19,8 +22,8 @@ import config from '~/data/business-config.json';
 // Render the service-type select as <optgroup>s per category so customers
 // pick the right sub-service. Standalone (after-hours) lives in its own group
 // at the bottom. The submitted value is the sub-service slug (e.g.
-// "ac-repair") — the AI dispatcher in Phase 2 maps that to a duration/buffer
-// pair from business-config.json.
+// "ac-repair") — the AI dispatcher maps that to a duration/buffer pair from
+// business-config.json.
 const categoryGroups = Object.entries(config.serviceCategories).map(([key, cat]) => ({
   key,
   label: cat.label,
@@ -53,11 +56,9 @@ const standaloneGroup = {
     class="space-y-5"
     data-form-name="HaloAir Booking Request"
   >
-    <!-- Web3Forms required fields (Phase 1 only — remove for Phase 2 API) -->
-    <input type="hidden" name="access_key" value="" id="web3forms-key" />
-    <input type="hidden" name="subject" value="New booking request — Halo Air" />
-    <input type="hidden" name="from_name" value="Halo Air Website" />
-    <!-- Honeypot anti-spam: bots fill this; humans don't see it. -->
+    <!-- Honeypot anti-spam: bots fill this; humans don't see it. The
+         dispatcher ignores the field today; we keep it on the form so we can
+         start rejecting truthy submissions server-side if abuse appears. -->
     <input
       type="checkbox"
       name="botcheck"
@@ -68,7 +69,7 @@ const standaloneGroup = {
     />
 
     <!-- Client-generated booking ID. Hidden but submitted with the payload so
-         the AI dispatcher (Phase 2) can correlate logs across systems. -->
+         the AI dispatcher can correlate logs across systems. -->
     <input type="hidden" name="booking_id" id="booking-id" value="" />
 
     <div class="grid gap-5 sm:grid-cols-2">
@@ -316,28 +317,19 @@ const standaloneGroup = {
 
 <script>
   // ---------------------------------------------------------------------------
-  // The single Phase 2 swap point. Change this URL when the AI dispatcher
-  // endpoint is live. Field names already match what the dispatcher expects.
+  // The single environment-dependent value in this file. Change to the Railway
+  // URL when deploying. Field names already match what the dispatcher expects.
   // ---------------------------------------------------------------------------
-  const BOOKING_ENDPOINT = 'https://api.web3forms.com/submit';
-
-  // PUBLIC_ env vars are exposed at build time. Set PUBLIC_WEB3FORMS_KEY in .env.
-  // We inject the key into the hidden access_key input on mount so it never
-  // appears in the rendered HTML source by default.
-  const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+  const BOOKING_ENDPOINT = 'http://localhost:3000/api/book';
 
   const form = document.getElementById('booking-form') as HTMLFormElement | null;
   const status = document.getElementById('form-status');
   const submitBtn = document.getElementById('booking-submit') as HTMLButtonElement | null;
-  const keyInput = document.getElementById('web3forms-key') as HTMLInputElement | null;
   const idInput = document.getElementById('booking-id') as HTMLInputElement | null;
 
-  if (form && status && submitBtn && idInput && keyInput) {
-    // Set Web3Forms key (Phase 1 only — Phase 2 removes the hidden input)
-    keyInput.value = WEB3FORMS_KEY;
-
-    // Generate a booking ID at mount: BK-{timestamp36}-{random6}
-    // This goes to email in Phase 1; in Phase 2 it correlates calendar events.
+  if (form && status && submitBtn && idInput) {
+    // Generate a booking ID at mount: BK-{timestamp36}-{random6}. The
+    // dispatcher uses this to correlate logs, calendar events, and emails.
     const id = `BK-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
     idInput.value = id;
 
@@ -429,15 +421,6 @@ const standaloneGroup = {
         return;
       }
 
-      if (!WEB3FORMS_KEY) {
-        setStatus(
-          'Form is not yet configured. Please call ' +
-            '780-224-0024 or email haloairhvac@gmail.com directly.',
-          'err',
-        );
-        return;
-      }
-
       setLoading(true);
       setStatus('Sending your request…', 'idle');
 
@@ -449,7 +432,7 @@ const standaloneGroup = {
           headers: { Accept: 'application/json' },
         });
         const data = await res.json().catch(() => ({}));
-        if (res.ok && (data as { success?: boolean }).success !== false) {
+        if (res.ok && (data as { ok?: boolean }).ok === true) {
           form.reset();
           // Restore the freshly-reset booking ID so the user sees it confirmed.
           idInput.value = id;
