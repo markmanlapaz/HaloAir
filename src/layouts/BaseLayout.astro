@@ -42,7 +42,14 @@ const {
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://example.com';
-const canonical = `${site}${canonicalPath}`;
+// Force trailing slash on canonical to match the actual served URL (Astro
+// builds each route as `<path>/index.html`). Without this, Google sees
+// /about → 301 → /about/ and flags "Page with redirect" + "Alternative page
+// with proper canonical tag" in Search Console.
+const canonicalSlashed = canonicalPath === '/' || canonicalPath.endsWith('/')
+  ? canonicalPath
+  : `${canonicalPath}/`;
+const canonical = `${site}${canonicalSlashed}`;
 const absoluteOg = ogImage.startsWith('http') ? ogImage : `${site}${ogImage}`;
 
 // Compose <title>. Pages can pass a full title; we don't double-append the
